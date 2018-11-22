@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "mdbreact";
+import Schedule from "../components/schedule/Schedule";
 
 class mainPage extends Component {
   render() {
