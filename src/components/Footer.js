@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBFooter, Fa } from "mdbreact";
 import { Col, Container, Row } from "mdbreact";
-import Footerlogo from "../img/footerlogo.jpg";
+import Footerlogo from "../img/footer_logo.png";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="3">
-            <img src={Footerlogo} width="71px" height="58px" />
+            <img src={Footerlogo} />
           </Col>
           <Col md="6">
             <p>
@@ -32,16 +32,22 @@ const Footer = () => {
             <h5 className="text-md-right">The makers</h5>
             <ul>
               <li className="list-unstyled text-md-right">
-                <a href="#!">Jo Chiheon</a>
-                <Fa icon="github" className="mr-3" />
+                <a href="#!">
+                  Jo Chiheon
+                  <Fa icon="github" className="mr-3" />
+                </a>
               </li>
               <li className="list-unstyled text-md-right">
-                <a href="#!">Park Gyuwon</a>
-                <Fa icon="github" className="mr-3" />
+                <a href="#!">
+                  Park Gyuwon
+                  <Fa icon="github" className="mr-3" />
+                </a>
               </li>
               <li className="list-unstyled text-md-right">
-                <a href="#!">Choi Myeonggwon</a>
-                <Fa icon="github" className="mr-3" />
+                <a href="#!">
+                  Jung Jina
+                  <Fa icon="github" className="mr-3" />
+                </a>
               </li>
             </ul>
           </Col>
