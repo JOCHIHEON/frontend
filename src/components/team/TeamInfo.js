@@ -4,40 +4,12 @@ import { Col, Row } from "mdbreact";
 import { Card, CardBody } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
-import TeamInfoCard from "./TeamInfoCard";
-
-const teams = [
-  {
-    teamName: "원주 DB 프로미",
-    teamImg: "http://kbl.or.kr/images/teams/logo_16.gif"
-    /*teamOwner: "김정남",
-    teamOwnerTmp: "-",
-    teamLeader: "신해용",
-    teamDirector: "이상범",
-    teamCoach: "이효상, 김성철",
-    teamAdress: "서울시 강남구 테헤란로 432 DB금융센터 15층",
-    teamFoundation: "원주 / DB손해보험",
-    teamContact: "02)3011-3176 / 0505)181-0092"*/
-  },
-  {
-    teamName: "서울 삼성 썬더스",
-    teamImg:
-      "http://kbl.or.kr/images/teams/logo_35.gif" /*
-    teamOwner: "김정남",
-    teamOwnerTmp: "-",
-    teamLeader: "신해용",
-    teamDirector: "이상범",
-    teamCoach: "이효상, 김성철",
-    teamAdress: "서울시 강남구 테헤란로 432 DB금융센터 15층",
-    teamFoundation: "원주 / DB손해보험",
-    teamContact: "02)3011-3176 / 0505)181-0092"*/
-  }
-];
+import TeamIntro from "./TeamIntro";
 
 class TeamInfo extends React.Component {
   render() {
     return (
-      /*<React.Fragment>
+      <React.Fragment>
         <Card className="mb-5">
           <CardBody
             id="breadcrumb"
@@ -86,22 +58,14 @@ class TeamInfo extends React.Component {
                       <Link to="/team/teamrecorde">팀내 선수 기록</Link>
                     </Col>
                   </Breadcrumb>
-                  <CardBody>
-                    
-                  </CardBody>
+                  <TeamIntro />
+                  <CardBody />
                 </Card>
               </Col>
             </Row>
           </Container>
         </Card>
-      </React.Fragment>*/
-      <div>
-        {teams.map(team => {
-          return (
-            <TeamInfoCard teamName={team.teamName} teamImg={team.teamImg} />
-          );
-        })}
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -3,7 +3,7 @@ import { Table, TableBody, TableHead } from "mdbreact";
 import { Fa, FormInline, Card, CardBody, Col, Row } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
-import { Link } from "react-router-dom";
+import Paging from "./Paging";
 
 const FreeBoard = () => {
   return (
@@ -78,7 +78,7 @@ const FreeBoard = () => {
                     글쓰기
                   </Button>
                 </Breadcrumb>
-                <Table>
+                <Table className="table table-hover">
                   <TableHead color="blue-grey lighten-4">
                     <tr>
                       <th>번호</th>
@@ -122,6 +122,7 @@ const FreeBoard = () => {
                     </tr>
                   </TableBody>
                 </Table>
+                <Paging />
               </Card>
             </Col>
           </Row>

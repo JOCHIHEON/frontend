@@ -7,11 +7,13 @@ import QnABoard from "./board/QnABoard.js";
 import FanBoard from "./board/FanBoard.js";
 import NotFoundPage from "../pages/NotFoundPage.js";
 import TeamInfo from "./team/TeamInfo.js";
+import Test from "../Test.js";
 
 class Routes extends React.Component {
   render() {
     return (
       <Switch>
+        <Route path="/test" exact component={Test} />
         <Route path="/" exact component={MainPage} />
         <Route path="/schedule" component={Schedule} />
         <Route path="/board/free" component={FreeBoard} />

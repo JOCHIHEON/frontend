@@ -8,7 +8,7 @@ class MainPage extends Component {
       <Container className="text-center">
         <Row>
           <Col md="3">
-            <Row>today중계</Row>
+            <Row>today일정</Row>
             <Row>랭킹</Row>
           </Col>
           <Col md="9">
