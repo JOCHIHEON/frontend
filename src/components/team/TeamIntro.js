@@ -32,7 +32,7 @@ const teams = [
 
 class TeamInfo extends React.Component {
   /*componentDidMount() {
-    urlMatch(() => {
+    urlMatch(() =>
       if (url == 1) {
         this.setState({
           teamName: "테스트"
