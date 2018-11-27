@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "mdbreact";
 import TeamIntroCard from "./TeamIntroCard";
-import { url } from "inspector";
 
 const teams = [
   {
@@ -41,7 +40,6 @@ class TeamInfo extends React.Component {
     });
   }*/
   render() {
-    console.log(url);
     return (
       <Card>
         {teams.map((team, index) => {
