@@ -3,7 +3,7 @@ import { Button, CardImage, CardTitle, CardText } from "mdbreact";
 import { Row, Col } from "mdbreact";
 
 class TeamIntroCard extends React.Component {
-  static propTypes = {
+  /*static propTypes = {
     teamImg: this.propTypes.string.isRequired,
     teamName: this.propTypes.string.isRequired,
     teamOwner: this.propTypes.string.isRequired,
@@ -14,7 +14,7 @@ class TeamIntroCard extends React.Component {
     teamAdress: this.propTypes.string.isRequired,
     teamFoundation: this.propTypes.string.isRequired,
     teamContact: this.propTypes.string.isRequired
-  };
+  };*/
   render() {
     return (
       <Row>

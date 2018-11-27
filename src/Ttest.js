@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Test1 = ({ match }) => {
+const Ttest = ({ match }) => {
   console.log("match", match);
   return (
     <div>
@@ -10,4 +10,4 @@ const Test1 = ({ match }) => {
   );
 };
 
-export default Test1;
+export default Ttest;
