@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Iframe, Row, Col } from "mdbreact";
 import MainPlayerRank from "../components/main/MainPlayerRank";
 
-class MainPage extends Component {
+class mainPage extends Component {
   render() {
     return (
       <Container className="text-center">
@@ -34,4 +34,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+export default mainPage;

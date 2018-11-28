@@ -8,15 +8,15 @@ import NotFoundPage from "../pages/NotFoundPage.js";
 import TeamInfo from "./team/TeamInfo.js";
 import Test from "../Test.js";
 import Ttest from "../Ttest.js";
-import MainPage from "../pages/MainPage.js";
+import mainPage from "../pages/mainPage.js";
 
 class Routes extends React.Component {
   render() {
     return (
       <Switch>
         <Route path="/test" exact component={Test} />
-        <Route path="/" exact component={MainPage}/>
-        <Route path="/team" component={TeamInfo}/>
+        <Route path="/" exact component={mainPage} />
+        <Route path="/team" component={TeamInfo} />
         <Route path="/schedule" component={Schedule} />
         <Route path="/board/free" component={FreeBoard} />
         <Route path="/board/fan" component={FanBoard} />
