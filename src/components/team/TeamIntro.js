@@ -29,7 +29,7 @@ const teams = [
   }
 ];
 
-class TeamInfo extends React.Component {
+class TeamIntro extends React.Component {
   render() {
     return (
       <Card>
@@ -54,4 +54,24 @@ class TeamInfo extends React.Component {
     );
   }
 }
-export default TeamInfo;
+export default TeamIntro;
+{/*<Route
+          path="/team"
+          render={() => {
+            return (
+              <div>
+                <TeamInfo />
+                <Route
+                  path="/team/teaminfo"
+                  render={() => {
+                    return (
+                      <div>
+                        <TeamIntro />
+                      </div>
+                    );
+                  }}
+                />
+              </div>
+            );
+          }}
+        />*/}
