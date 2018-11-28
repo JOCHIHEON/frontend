@@ -5,9 +5,9 @@ import { Card, CardBody } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
 import { Route, Switch } from "react-router-dom";
-import TeamIntro from "./TeamIntro";
+import TeamIntro from "../components/team/TeamIntro";
 
-class TeamInfo extends React.Component {
+class TeamPage extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -28,16 +28,30 @@ class TeamInfo extends React.Component {
                   <ListGroupItem href="/team/intro" active>
                     원주DB
                   </ListGroupItem>
-                  <ListGroupItem href="/team/intro:teamno">서울삼성</ListGroupItem>
-                  <ListGroupItem href="/team/intro:teamno">서울SK</ListGroupItem>
-                  <ListGroupItem href="/team/intro:teamno">창원LG</ListGroupItem>
-                  <ListGroupItem href="/team/intro:teamno">고양오리온</ListGroupItem>
+                  <ListGroupItem href="/team/intro:teamno">
+                    서울삼성
+                  </ListGroupItem>
+                  <ListGroupItem href="/team/intro:teamno">
+                    서울SK
+                  </ListGroupItem>
+                  <ListGroupItem href="/team/intro:teamno">
+                    창원LG
+                  </ListGroupItem>
+                  <ListGroupItem href="/team/intro:teamno">
+                    고양오리온
+                  </ListGroupItem>
                   <ListGroupItem href="/team/intro:teamno">
                     인천전자랜드
                   </ListGroupItem>
-                  <ListGroupItem href="/team/intro:teamno">전주KCC</ListGroupItem>
-                  <ListGroupItem href="/team/intro:teamno">안양KGC</ListGroupItem>
-                  <ListGroupItem href="/team/intro:teamno">부산KT</ListGroupItem>
+                  <ListGroupItem href="/team/intro:teamno">
+                    전주KCC
+                  </ListGroupItem>
+                  <ListGroupItem href="/team/intro:teamno">
+                    안양KGC
+                  </ListGroupItem>
+                  <ListGroupItem href="/team/intro:teamno">
+                    부산KT
+                  </ListGroupItem>
                   <ListGroupItem href="/team/intro:teamno">
                     울산현대모비스
                   </ListGroupItem>
@@ -71,4 +85,4 @@ class TeamInfo extends React.Component {
   }
 }
 
-export default TeamInfo;
+export default TeamPage;

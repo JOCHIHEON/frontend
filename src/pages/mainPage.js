@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Container, Iframe, Row, Col } from "mdbreact";
+import { Container, Iframe, Row, Col, Card } from "mdbreact";
 import MainPlayerRank from "../components/main/MainPlayerRank";
+import MainTeamRank from "../components/main/MainTeamRank";
+import MainSchedule from "../components/main/MainSchedule";
 
 class mainPage extends Component {
   render() {
@@ -8,8 +10,10 @@ class mainPage extends Component {
       <Container className="text-center">
         <Row>
           <Col md="3">
-            <Row>today일정</Row>
-            <Row>랭킹</Row>
+            <Row>
+              <MainSchedule />
+            </Row>
+            <Row>MainTeamRank</Row>
           </Col>
           <Col md="9">
             <Row>
@@ -23,7 +27,9 @@ class mainPage extends Component {
               </div>
             </Row>
             <Row>
-              <MainPlayerRank />
+              <Card>
+                <MainPlayerRank />
+              </Card>
             </Row>
           </Col>
         </Row>
