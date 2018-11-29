@@ -1,129 +1,82 @@
 import React from "react";
-import { Card, Row, Col } from "mdbreact";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  ListGroup,
+  Badge,
+  Fa,
+  ListGroupItem
+} from "mdbreact";
 
 const MainTeamRank = () => {
   return (
-    <Card class="visual__rank">
-      <div class="tit__area">
-        <h3 class="title_c">TEAM RANKING</h3>
-        <div class="more_area">
-          <a href="/stats/team_rank.asp">더보기</a>
-        </div>
-      </div>
-      <Row class="row">
-        <Col class="col list_rank">
-          <li>
-            <div class="info_team">
-              <span class="txt_num">1</span>
-              <strong class="txt_team">현대모비스</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">15</span>
-              <span class="txt_lose">3</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">2</span>
-              <strong class="txt_team">KT</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">12</span>
-              <span class="txt_lose">6</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">3</span>
-              <strong class="txt_team">전자랜드</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">11</span>
-              <span class="txt_lose">7</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">4</span>
-              <strong class="txt_team">LG</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">10</span>
-              <span class="txt_lose">8</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">5</span>
-              <strong class="txt_team">KGC</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">9</span>
-              <span class="txt_lose">9</span>
-            </div>
-          </li>
-        </Col>
-        <Col class="col list_rank">
-          <li>
-            <div class="info_team">
-              <span class="txt_num">6</span>
-              <strong class="txt_team">SK</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">8</span>
-              <span class="txt_lose">10</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">6</span>
-              <strong class="txt_team">KCC</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">8</span>
-              <span class="txt_lose">10</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">8</span>
-              <strong class="txt_team">DB</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">7</span>
-              <span class="txt_lose">11</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">9</span>
-              <strong class="txt_team">오리온</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">6</span>
-              <span class="txt_lose">12</span>
-            </div>
-          </li>
-
-          <li>
-            <div class="info_team">
-              <span class="txt_num">10</span>
-              <strong class="txt_team">삼성</strong>
-            </div>
-            <div class="info_score">
-              <span class="txt_win">4</span>
-              <span class="txt_lose">14</span>
-            </div>
-          </li>
-        </Col>
-      </Row>
+    <Card className="mb-4">
+      <CardHeader>TeamRank</CardHeader>
+      <CardBody>
+        <ListGroup className="list-group-flush">
+          <ListGroupItem>
+            <Badge color="danger-color" pill className="pull-left">
+              1
+            </Badge>
+            울산모비스
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="danger-color" pill className="pull-left">
+              2
+            </Badge>
+            부산KT
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="success-color" pill className="pull-left">
+              3
+            </Badge>
+            인천전자랜드
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="success-color" pill className="pull-left">
+              4
+            </Badge>
+            창원LG
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="success-color" pill className="pull-left">
+              5
+            </Badge>
+            안양KGC
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="success-color" pill className="pull-left">
+              6
+            </Badge>
+            전주KCC
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="primary-color" pill className="pull-left">
+              7
+            </Badge>
+            서울SK
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="primary-color" pill className="pull-left">
+              8
+            </Badge>
+            원주DB
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="primary-color" pill className="pull-left">
+              9
+            </Badge>
+            고양오리온
+          </ListGroupItem>
+          <ListGroupItem>
+            <Badge color="primary-color" pill className="pull-left">
+              10
+            </Badge>
+            서울삼성
+          </ListGroupItem>
+        </ListGroup>
+      </CardBody>
     </Card>
   );
 };

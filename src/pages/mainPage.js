@@ -13,7 +13,7 @@ class mainPage extends Component {
             <Row>
               <MainSchedule />
             </Row>
-            <Row>MainTeamRank</Row>
+            <Row>{/*<MainTeamRank />*/}</Row>
           </Col>
           <Col md="9">
             <Row>

@@ -15,7 +15,8 @@ const MainSchedule = props => {
       activeItem={1}
       length={4}
       showControls={true}
-      showIndicators={true}
+      showIndicators={false}
+      interval={false}
       className="z-depth-1"
     >
       <CarouselInner>
@@ -23,56 +24,51 @@ const MainSchedule = props => {
           <View>
             <img
               className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+              src="https://imgnews.pstatic.net/image/sports/basketball_word/bg_wordkbl_ground.jpg"
               alt="First slide"
             />
+            <p className="p-responsive">현대모비스 VS KCC</p>
             <Mask overlay="black-light" />
           </View>
-          <CarouselCaption>
-            <h3 className="h3-responsive">Light mask</h3>
-            <p>First text</p>
-          </CarouselCaption>
+          <CarouselCaption />
         </CarouselItem>
         <CarouselItem itemId="2">
           <View>
             <img
               className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(99).jpg"
-              alt="Second slide"
+              src="https://imgnews.pstatic.net/image/sports/basketball_word/bg_wordkbl_ground.jpg"
+              alt="First slide"
             />
-            <Mask overlay="black-strong" />
+            <Mask overlay="black-light" />
           </View>
           <CarouselCaption>
-            <h3 className="h3-responsive">Strong mask</h3>
-            <p>Second text</p>
+            <p className="p-responsive">현대모비스 VS KCC</p>
           </CarouselCaption>
         </CarouselItem>
         <CarouselItem itemId="3">
           <View>
             <img
               className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg"
-              alt="Third slide"
+              src="https://imgnews.pstatic.net/image/sports/basketball_word/bg_wordkbl_ground.jpg"
+              alt="First slide"
             />
-            <Mask overlay="black-slight" />
+            <Mask overlay="black-light" />
           </View>
           <CarouselCaption>
-            <h3 className="h3-responsive">Slight mask</h3>
-            <p>Third text</p>
+            <p className="p-responsive">현대모비스 VS KCC</p>
           </CarouselCaption>
         </CarouselItem>
         <CarouselItem itemId="4">
           <View>
             <img
               className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20%28143%29.jpg"
-              alt="Mattonit's item"
+              src="https://imgnews.pstatic.net/image/sports/basketball_word/bg_wordkbl_ground.jpg"
+              alt="First slide"
             />
             <Mask overlay="black-light" />
           </View>
           <CarouselCaption>
-            <h3 className="h3-responsive">Sopot Beach</h3>
-            <p>Taken june 21th by @mattonit</p>
+            <p className="p-responsive">현대모비스 VS KCC</p>
           </CarouselCaption>
         </CarouselItem>
       </CarouselInner>
