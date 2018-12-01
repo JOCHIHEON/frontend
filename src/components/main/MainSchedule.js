@@ -6,7 +6,10 @@ import {
   CarouselInner,
   CarouselItem,
   View,
-  Mask
+  Mask,
+  Card,
+  CardHeader,
+  CardBody
 } from "mdbreact";
 
 const MainSchedule = props => {
@@ -27,9 +30,11 @@ const MainSchedule = props => {
               src="https://imgnews.pstatic.net/image/sports/basketball_word/bg_wordkbl_ground.jpg"
               alt="First slide"
             />
-            <p className="p-responsive">현대모비스 VS KCC</p>
             <Mask overlay="black-light" />
           </View>
+          <CarouselCaption>
+            <p className="p-responsive">현대모비스 VS KCC</p>
+          </CarouselCaption>
           <CarouselCaption />
         </CarouselItem>
         <CarouselItem itemId="2">

@@ -1,8 +1,17 @@
 import React, { Component } from "react";
-import { Container, Iframe, Row, Col, Card } from "mdbreact";
+import {
+  Container,
+  Iframe,
+  Row,
+  Col,
+  Card,
+  CardHeader,
+  CardBody
+} from "mdbreact";
 import MainPlayerRank from "../components/main/MainPlayerRank";
 import MainTeamRank from "../components/main/MainTeamRank";
 import MainSchedule from "../components/main/MainSchedule";
+import MainVideo from "../components/main/MainVideo";
 
 class mainPage extends Component {
   render() {
@@ -11,25 +20,18 @@ class mainPage extends Component {
         <Row>
           <Col md="3">
             <Row>
-              <MainSchedule />
+              <MainTeamRank />
             </Row>
-            <Row>{/*<MainTeamRank />*/}</Row>
           </Col>
           <Col md="9">
             <Row>
-              <div>
-                <div>
-                  <Iframe
-                    height={250}
-                    src="https://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn?vid=95D34E133DE47E7FFF5AA1F9C4B3F1CB3996&outKey=V122a288ee90aa2656a5189ad8acc5dcb98b16984ee9af152123889ad8acc5dcb98b1&controlBarMovable=true&jsCallable=true&isAutoPlay=true&skinName=tvcast_white"
-                  />
-                </div>
-              </div>
+              <MainVideo />
             </Row>
             <Row>
-              <Card>
-                <MainPlayerRank />
-              </Card>
+              <MainSchedule />
+            </Row>
+            <Row>
+              <MainPlayerRank />
             </Row>
           </Col>
         </Row>

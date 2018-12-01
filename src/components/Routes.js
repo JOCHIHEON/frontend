@@ -8,6 +8,7 @@ import NotFoundPage from "../pages/NotFoundPage.js";
 import mainPage from "../pages/mainPage.js";
 import TeamPage from "../pages/TeamPage.js";
 import MainSchedule from "./main/MainSchedule.js";
+import MainTeamRank from "./main/MainTeamRank.js";
 
 class Routes extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class Routes extends React.Component {
         <Route path="/board/qna" component={QnABoard} />
         <Route path="/404" component={NotFoundPage} />
 
+        <Route path="/mainteamrank" component={MainTeamRank} />
         <Route path="/mainschedule" component={MainSchedule} />
       </Switch>
     );
