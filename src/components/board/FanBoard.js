@@ -5,9 +5,36 @@ import { Fa, FormInline } from "mdbreact";
 import { Card, CardBody } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
+import axios from 'axios';
 
 class FanBoard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {board: []};
+  }
+  componentDidMount() {
+    this.FanBoard();
+  }
+  FanBoard(){
+    return axios.get('http://rbd.javajs.net:8100/freeboard',{}).then(res => {
+      const board = res.data;
+      this.setState({ board });
+    });
+  } 
   render() {
+    
+    const boards = this.state.board.map((item, i) => (
+      <tr>
+      <td>{item.fre_no}</td>
+      <td>
+        <a>{item.fre_title}</a>
+      </td>
+      <td>{item.ui_no}</td>
+      <td>{item.fre_moddat}</td>
+      <td>{item.fre_lookupcnt}</td>
+      <td>{item.fre_like}</td>
+    </tr>
+    ));
     return (
       <React.Fragment>
         <Card className="mb-5">
@@ -183,36 +210,7 @@ class FanBoard extends Component {
                       </tr>
                     </TableHead>
                     <TableBody>
-                      <tr>
-                        <td>1</td>
-                        <td>
-                          <a>test</a>
-                        </td>
-                        <td>Mark</td>
-                        <td>@date</td>
-                        <td>1</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>
-                          <a>test</a>
-                        </td>
-                        <td>Jacob</td>
-                        <td>@date</td>
-                        <td>1</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>
-                          <a>test</a>
-                        </td>
-                        <td>Larry</td>
-                        <td>@date</td>
-                        <td>1</td>
-                        <td>1</td>
-                      </tr>
+                      {boards}
                     </TableBody>
                   </Table>
                 </Card>
