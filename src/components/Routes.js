@@ -17,7 +17,7 @@ class Routes extends React.Component {
         <Route path="/" exact component={mainPage} />
         <Route path="/team" component={TeamPage} />
         <Route path="/schedule" component={Schedule} />
-        <Route path="/board/free" component={FreeBoard} />
+        <Route path="/board/free" exact component={FreeBoard} />
         <Route path="/board/fan" component={FanBoard} />
         <Route path="/board/qna" component={QnABoard} />
         <Route path="/404" component={NotFoundPage} />

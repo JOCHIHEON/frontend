@@ -5,35 +5,34 @@ import { Fa, FormInline } from "mdbreact";
 import { Card, CardBody } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
-import axios from 'axios';
+import axios from "axios";
 
 class FanBoard extends Component {
   constructor(props) {
     super(props);
-    this.state = {board: []};
+    this.state = { board: [] };
   }
   componentDidMount() {
     this.FanBoard();
   }
-  FanBoard(){
-    return axios.get('http://rbd.javajs.net:8100/freeboard',{}).then(res => {
+  FanBoard() {
+    return axios.get("http://rbd.javajs.net:8100/freeboard", {}).then(res => {
       const board = res.data;
       this.setState({ board });
     });
-  } 
+  }
   render() {
-    
     const boards = this.state.board.map((item, i) => (
       <tr>
-      <td>{item.fre_no}</td>
-      <td>
-        <a>{item.fre_title}</a>
-      </td>
-      <td>{item.ui_no}</td>
-      <td>{item.fre_moddat}</td>
-      <td>{item.fre_lookupcnt}</td>
-      <td>{item.fre_like}</td>
-    </tr>
+        <td>{item.fan_no}</td>
+        <td>
+          <a>{item.fan_title}</a>
+        </td>
+        <td>{item.ui_no}</td>
+        <td>{item.fan_moddat}</td>
+        <td>{item.fan_lookupcnt}</td>
+        <td>{item.fan_like}</td>
+      </tr>
     ));
     return (
       <React.Fragment>
@@ -209,9 +208,7 @@ class FanBoard extends Component {
                         <th>추천</th>
                       </tr>
                     </TableHead>
-                    <TableBody>
-                      {boards}
-                    </TableBody>
+                    <TableBody>{boards}</TableBody>
                   </Table>
                 </Card>
               </Col>
