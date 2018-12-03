@@ -12,7 +12,7 @@ import {
 const MainTeamRank = () => {
   return (
     <Card className="mb-4">
-      <CardHeader>TeamRank</CardHeader>
+      <CardHeader>팀 순위</CardHeader>
       <CardBody>
         <ListGroup className="list-group-flush">
           <ListGroupItem>
