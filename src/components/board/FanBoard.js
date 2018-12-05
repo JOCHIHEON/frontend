@@ -16,7 +16,7 @@ class FanBoard extends Component {
     this.FanBoard();
   }
   FanBoard() {
-    return axios.get("http://rbd.javajs.net:8100/freeboard", {}).then(res => {
+    return axios.get("http://rbd.javajs.net:8100/fanboard", {}).then(res => {
       const board = res.data;
       this.setState({ board });
     });

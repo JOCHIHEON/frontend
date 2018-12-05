@@ -44,7 +44,7 @@ class FreeBoard extends Component {
           >
             <Breadcrumb>
               <BreadcrumbItem active>
-                <a href="/board/free">커뮤니티</a>
+                <a href="/board">커뮤니티</a>
               </BreadcrumbItem>
               <BreadcrumbItem>
                 <a href="/board/free">자유게시판</a>

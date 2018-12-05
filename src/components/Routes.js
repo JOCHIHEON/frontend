@@ -9,6 +9,7 @@ import mainPage from "../pages/mainPage.js";
 import TeamPage from "../pages/TeamPage.js";
 import MainSchedule from "./main/MainSchedule.js";
 import MainTeamRank from "./main/MainTeamRank.js";
+import BoardPage from "../pages/BoardPage.js";
 
 class Routes extends React.Component {
   render() {
@@ -17,11 +18,8 @@ class Routes extends React.Component {
         <Route path="/" exact component={mainPage} />
         <Route path="/team" component={TeamPage} />
         <Route path="/schedule" component={Schedule} />
-        <Route path="/board/free" exact component={FreeBoard} />
-        <Route path="/board/fan" component={FanBoard} />
-        <Route path="/board/qna" component={QnABoard} />
         <Route path="/404" component={NotFoundPage} />
-
+        <Route path="/board" component={BoardPage} />
         <Route path="/mainteamrank" component={MainTeamRank} />
         <Route path="/mainschedule" component={MainSchedule} />
       </Switch>
