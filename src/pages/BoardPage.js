@@ -3,11 +3,12 @@ import { Route } from "react-router-dom";
 import { Card } from "mdbreact";
 import FanBoardTop from "../components/board/FanBoardTop";
 import FanBoard from "../components/board/FanBoard";
-import FreeBoard from "../components/board/FreeBoard";
+import FreeBoard from "../components/board/beforeFreeBoard";
 import FreeBoardTop from "../components/board/FreeBoardTop";
 import QnABoard from "../components/board/QnABoard";
 import QnABoardTop from "../components/board/QnABoardTop";
 import BoardWrite from "../components/board/BoardWrite";
+import TestBoard from "../components/board/FreeBoard";
 
 class BoardPage extends Component {
   render() {
@@ -17,7 +18,9 @@ class BoardPage extends Component {
           <Route path="/board" exact component={FreeBoardTop} />
           <Route path="/board" exact component={FreeBoard} />
           <Route path="/board/free" exact component={FreeBoardTop} />
-          <Route path="/board/free" exact component={FreeBoard} />
+
+          <Route path="/board/free" exact component={TestBoard} />
+
           <Route path="/board/free/write" component={BoardWrite} />
           <Route path="/board/fan" component={FanBoardTop} />
           <Route path="/board/fan" component={FanBoard} />

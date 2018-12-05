@@ -18,23 +18,7 @@ class FreeBoardTop extends Component {
             <a href="/board/free">자유게시판</a>
           </BreadcrumbItem>
         </Breadcrumb>
-        <FormInline className="md-form m-0">
-          <input
-            className="form-control form-control-sm"
-            type="search"
-            placeholder="검색하기"
-            aria-label="Search"
-          />
-          <Button
-            size="sm"
-            color="primary"
-            className="my-0"
-            type="submit"
-            href="#"
-          >
-            <Fa icon="search" />
-          </Button>
-        </FormInline>
+        <FormInline className="md-form m-0" />
       </CardBody>
     );
   }

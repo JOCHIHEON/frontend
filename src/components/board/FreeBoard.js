@@ -1,39 +1,58 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
-import { Table, TableBody, TableHead } from "mdbreact";
-import { Fa, FormInline, Card, CardBody, Col, Row } from "mdbreact";
-import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
-import { ListGroup, ListGroupItem, Container } from "mdbreact";
-import Paging from "./Paging";
+import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+import "../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
 import axios from "axios";
+import { ListGroup, ListGroupItem, Container } from "mdbreact";
+import { Col, Row } from "mdbreact";
+import { FormInline, Button } from "mdbreact";
+
+var boards = [];
+
+function getCaret(direction) {
+  if (direction === "asc") {
+    return <span>▲</span>;
+  }
+  if (direction === "desc") {
+    return <span>▼</span>;
+  }
+  return <span>▲/▼</span>;
+}
 
 class FreeBoard extends Component {
   constructor(props) {
     super(props);
-    this.state = { board: [] };
+    this.state = {
+      text: ""
+    };
+    this.options = {
+      defaultSortName: "fre_no", // default sort column name
+      defaultSortOrder: "desc" // default sort order
+    };
   }
   componentDidMount() {
     this.FreeBoard();
   }
   FreeBoard() {
     return axios.get("http://rbd.javajs.net:8100/freeboard", {}).then(res => {
-      const board = res.data;
-      this.setState({ board });
+      boards = res.data;
+      this.setState({ value: this.state.value + 1 });
     });
   }
+
+  renderPaginationPanel = props => {
+    return (
+      <div>
+        {props.components.pageList}
+        <span>게시물 수 : </span>
+        {props.components.sizePerPageDropdown}
+      </div>
+    );
+  };
+
   render() {
-    const boards = this.state.board.map((item, i) => (
-      <tr>
-        <td>{item.fre_no}</td>
-        <td>
-          <a>{item.fre_title}</a>
-        </td>
-        <td>{item.ui_no}</td>
-        <td>{item.fre_moddat}</td>
-        <td>{item.fre_lookupcnt}</td>
-        <td>{item.fre_like}</td>
-      </tr>
-    ));
+    const options = {
+      paginationPanel: this.renderPaginationPanel
+    };
     return (
       <Container>
         <Row>
@@ -47,52 +66,87 @@ class FreeBoard extends Component {
             </ListGroup>
           </Col>
           <Col md="10">
-            <Card className="mb-5">
-              <Breadcrumb>
-                <Button
-                  color="grey"
-                  className="boardbtn_all"
-                  type="submit"
-                  href="/board/free"
-                >
-                  전체
-                </Button>
-                <Button
-                  color="red"
-                  className="boardbtn_best"
-                  type="submit"
-                  href="#"
-                >
-                  베스트
-                </Button>
-                <Button
-                  color="primary"
-                  className="board-write"
-                  type="submit"
-                  href="/board/free/write"
-                >
-                  글쓰기
-                </Button>
-              </Breadcrumb>
-              <Table className="table table-hover">
-                <TableHead color="blue-grey lighten-4">
-                  <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>닉네임</th>
-                    <th>작성일</th>
-                    <th>조회수</th>
-                    <th>추천</th>
-                  </tr>
-                </TableHead>
-                <TableBody>{boards}</TableBody>
-              </Table>
-              <Paging />
-            </Card>
+            <FormInline className="md-form m-0">
+              <Button
+                color="grey"
+                className="boardbtn_all"
+                type="submit"
+                href="/board/free"
+              >
+                전체
+              </Button>
+              <Button
+                color="red"
+                className="boardbtn_best"
+                type="submit"
+                href="#"
+              >
+                베스트
+              </Button>
+              <Button
+                color="primary"
+                className="board-write"
+                type="submit"
+                href="/board/free/write"
+              >
+                글쓰기
+              </Button>
+            </FormInline>
+            <BootstrapTable
+              ref="table"
+              data={boards}
+              pagination={true}
+              search={true}
+              options={options}
+              hover
+            >
+              <TableHeaderColumn
+                dataField="fre_no"
+                thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                isKey={true}
+              >
+                번호
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField="fre_title"
+                thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+              >
+                제목
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField="ui_no"
+                thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+              >
+                닉네임
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField="fre_moddat"
+                thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+              >
+                작성일
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField="fre_lookupcnt"
+                thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                caretRender={getCaret}
+                dataSort
+              >
+                조회수
+              </TableHeaderColumn>
+              <TableHeaderColumn
+                dataField="fre_like"
+                thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                caretRender={getCaret}
+                dataSort
+              >
+                추천
+              </TableHeaderColumn>
+            </BootstrapTable>
           </Col>
         </Row>
       </Container>
     );
   }
 }
+
 export default FreeBoard;
