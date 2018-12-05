@@ -67,20 +67,10 @@ class FreeBoard extends Component {
           </Col>
           <Col md="10">
             <FormInline className="md-form m-0">
-              <Button
-                color="grey"
-                className="boardbtn_all"
-                type="submit"
-                href="/board/free"
-              >
+              <Button color="grey" className="boardbtn_all" href="/board/free">
                 전체
               </Button>
-              <Button
-                color="red"
-                className="boardbtn_best"
-                type="submit"
-                href="#"
-              >
+              <Button color="red" className="boardbtn_best" href="#">
                 베스트
               </Button>
               <Button
