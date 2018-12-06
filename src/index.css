@@ -29,7 +29,7 @@ main {
 
 .navbar-brand {
   margin: 0 auto;
-  color: #2196f3 !important;
+  color: hsl(0, 0%, 0%) !important;
 }
 
 .sidebar-fixed {
@@ -46,8 +46,7 @@ main {
 
 .flexible-navbar {
   transition: padding-left 0.5s;
-  padding: 0 270px;
-  background: #000000;
+  background: hsl(0, 27%, 2%);
 }
 
 #content {
@@ -190,7 +189,7 @@ main {
 .page-footer {
   transition: padding-left 0.5s;
   padding: 0 15%;
-  background: #000000;
+  background: hsl(0, 27%, 2%);
 }
 .mr-auto {
   margin: 0 auto;

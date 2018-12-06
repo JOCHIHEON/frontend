@@ -125,10 +125,14 @@ class Navigation extends Component {
                 </Dropdown>
               </NavItem>
               <NavItem>
-                <Login />
+                <Dropdown>
+                  <Login />
+                </Dropdown>
               </NavItem>
               <NavItem>
-                <Join />
+                <Dropdown>
+                  <Join />
+                </Dropdown>
               </NavItem>
             </NavbarNav>
           </Collapse>

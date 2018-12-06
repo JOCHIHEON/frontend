@@ -16,7 +16,7 @@ import MainVideo from "../components/main/MainVideo";
 class mainPage extends Component {
   render() {
     return (
-      <Container className="text-center">
+      <div>
         <Row>
           <Col md="3">
             <Row>
@@ -37,7 +37,7 @@ class mainPage extends Component {
         </Row>
         <Row>무비클립</Row>
         <Row>뉴스</Row>
-      </Container>
+      </div>
     );
   }
 }

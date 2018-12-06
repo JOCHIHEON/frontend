@@ -5,14 +5,22 @@ import {
   CardBody,
   ListGroup,
   Badge,
-  Fa,
-  ListGroupItem
+  Button,
+  ListGroupItem,
+  FormInline
 } from "mdbreact";
 
 const MainTeamRank = () => {
   return (
     <Card className="mb-4">
-      <CardHeader>팀 순위</CardHeader>
+      <CardHeader>
+        <FormInline className="md-form m-0">
+          <h5>TEAM RANGKING</h5>
+          <Button href="/record/rank" size="sm" outline color="blue-grey">
+            +more
+          </Button>
+        </FormInline>
+      </CardHeader>
       <CardBody>
         <ListGroup className="list-group-flush">
           <ListGroupItem>
