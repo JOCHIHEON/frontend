@@ -50,6 +50,7 @@ main {
 }
 
 #content {
+  background: hsl(69, 78%, 65%);
 }
 .navbar.navbar-light form .md-form input {
   margin-left: auto;
@@ -217,7 +218,8 @@ main {
     margin-top: 2.5rem;
   }
 }
-
+@media (min-width: 768px) {
+}
 @media (max-width: 576px) {
   .card.cascading-admin-card {
     margin-top: 2.5rem;

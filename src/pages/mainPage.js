@@ -13,7 +13,7 @@ import MainTeamRank from "../components/main/MainTeamRank";
 import MainSchedule from "../components/main/MainSchedule";
 import MainVideo from "../components/main/MainVideo";
 
-class mainPage extends Component {
+class MainPage extends Component {
   render() {
     return (
       <div>
@@ -42,4 +42,4 @@ class mainPage extends Component {
   }
 }
 
-export default mainPage;
+export default MainPage;

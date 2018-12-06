@@ -1,0 +1,48 @@
+.sub_title {
+  background-color: rgb(255, 255, 255);
+}
+.sub_title_wrap {
+  width: 28%;
+  margin: 0 auto;
+  padding: 0px 0px;
+}
+.sub_title_wrap .l_title.bold {
+  font-weight: bold;
+}
+.sub_title_wrap .l_title {
+  font-size: 22px;
+  display: inline-block;
+  font-weight: normal;
+  vertical-align: middle;
+  line-height: 30px;
+  color: #4a4a4a;
+}
+.sub_title_wrap .right_arrow {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  margin: 0 15px;
+  color: #888;
+  font-size: 20px;
+}
+.sub_title_wrap .right_arrow:after {
+  content: "\e80d";
+  font-family: lgsports_icon;
+}
+.sub_title_wrap .l_title {
+  font-size: 22px;
+  display: inline-block;
+  font-weight: normal;
+  vertical-align: middle;
+  line-height: 30px;
+  color: #4a4a4a;
+}
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}

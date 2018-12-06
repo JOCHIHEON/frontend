@@ -14,12 +14,10 @@ const MainTeamRank = () => {
   return (
     <Card className="mb-4">
       <CardHeader>
-        <FormInline className="md-form m-0">
-          <h5>TEAM RANGKING</h5>
-          <Button href="/record/rank" size="sm" outline color="blue-grey">
-            +more
-          </Button>
-        </FormInline>
+        TEAM RANGKING
+        <Button href="/record/rank" size="sm" outline color="blue-grey">
+          +more
+        </Button>
       </CardHeader>
       <CardBody>
         <ListGroup className="list-group-flush">
