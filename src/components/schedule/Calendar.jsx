@@ -57,7 +57,7 @@ class Calendar extends React.Component {
     let days = [];
     let day = startDate;
     let formattedDate = "";
-
+    let matchSchedule = "경기일정";
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = dateFns.format(day, dateFormat);
@@ -76,6 +76,7 @@ class Calendar extends React.Component {
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
+            <span>{matchSchedule}</span>
           </div>
         );
         day = dateFns.addDays(day, 1);
