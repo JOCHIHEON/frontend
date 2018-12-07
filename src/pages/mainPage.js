@@ -24,11 +24,9 @@ class MainPage extends Component {
             </Row>
           </Col>
           <Col md="9">
+            <Row>{/*<MainSchedule />*/}</Row>
             <Row>
               <MainVideo />
-            </Row>
-            <Row>
-              <MainSchedule />
             </Row>
             <Row>
               <MainPlayerRank />

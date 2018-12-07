@@ -50,7 +50,7 @@ main {
 }
 
 #content {
-  background: hsl(69, 78%, 65%);
+  background: #ededee;
 }
 .navbar.navbar-light form .md-form input {
   margin-left: auto;
@@ -207,11 +207,9 @@ main {
   }
 
   #content {
-    margin-left: 0px;
   }
 
   .page-footer {
-    margin-left: 0px;
   }
 
   .card.cascading-admin-card {

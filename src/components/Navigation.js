@@ -41,7 +41,13 @@ class Navigation extends Component {
             <img src={Navlogo} />
           </NavbarBrand>
         </Navbar>
-        <Navbar className="flexible-navbar" light expand="md" scrolling>
+        <Navbar
+          className="flexible-navbar"
+          light
+          expand="md"
+          scrolling
+          color="black"
+        >
           <NavbarToggler
             image="https://mdbootstrap.com/img/svg/hamburger6.svg?color=000"
             onClick={this.onClick}
@@ -50,7 +56,9 @@ class Navigation extends Component {
             <NavbarNav left>
               <NavItem>
                 <Dropdown>
-                  <DropdownToggle color="black">일정/결과</DropdownToggle>
+                  <DropdownToggle outline color="white">
+                    일정/결과
+                  </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/schedule">경기일정</DropdownItem>
                   </DropdownMenu>
@@ -58,7 +66,9 @@ class Navigation extends Component {
               </NavItem>
               <NavItem>
                 <Dropdown>
-                  <DropdownToggle color="black">경기기록</DropdownToggle>
+                  <DropdownToggle outline color="white">
+                    경기기록
+                  </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/record/rank">팀순위</DropdownItem>
                     <DropdownItem href="/record/versus">상대전적</DropdownItem>
@@ -71,7 +81,9 @@ class Navigation extends Component {
               </NavItem>
               <NavItem>
                 <Dropdown>
-                  <DropdownToggle color="black">구단정보</DropdownToggle>
+                  <DropdownToggle outline color="white">
+                    구단정보
+                  </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/team">원주DB</DropdownItem>
                     <DropdownItem href="/team">서울삼성</DropdownItem>
@@ -88,7 +100,9 @@ class Navigation extends Component {
               </NavItem>
               <NavItem>
                 <Dropdown>
-                  <DropdownToggle color="black">선수정보</DropdownToggle>
+                  <DropdownToggle outline color="white">
+                    선수정보
+                  </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/players/detail">선수상세</DropdownItem>
                     <DropdownItem href="/players/rank">선수순위</DropdownItem>
@@ -97,7 +111,9 @@ class Navigation extends Component {
               </NavItem>
               <NavItem>
                 <Dropdown>
-                  <DropdownToggle color="black">경기 중계</DropdownToggle>
+                  <DropdownToggle outline color="white">
+                    경기 중계
+                  </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/live/n">네이버 중계</DropdownItem>
                     <DropdownItem href="/live/a">아프리카 중계</DropdownItem>
@@ -107,7 +123,9 @@ class Navigation extends Component {
               </NavItem>
               <NavItem>
                 <Dropdown>
-                  <DropdownToggle color="black">커뮤니티</DropdownToggle>
+                  <DropdownToggle outline color="white">
+                    커뮤니티
+                  </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/board/free">자유게시판</DropdownItem>
                     <DropdownItem href="/board/fan/1">팬게시판</DropdownItem>
@@ -117,7 +135,9 @@ class Navigation extends Component {
               </NavItem>
               <NavItem>
                 <Dropdown>
-                  <DropdownToggle color="black">뉴스</DropdownToggle>
+                  <DropdownToggle outline color="white">
+                    뉴스
+                  </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/news/naver">네이버 뉴스</DropdownItem>
                     <DropdownItem href="/news/kbl">KBL 뉴스</DropdownItem>
