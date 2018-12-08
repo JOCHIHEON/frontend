@@ -16,7 +16,7 @@ class Routes extends React.Component {
     return (
       <Switch>
         <Route path="/" exact component={MainPage} />
-        <Route path="/team" component={TeamPage} />
+        <Route path="/teaminfo" component={TeamPage} />
         <Route path="/schedule" component={Schedule} />
         <Route path="/record" component={RecordPage} />
         <Route path="/board" component={BoardPage} />

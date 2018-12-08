@@ -1,77 +1,56 @@
 import React from "react";
-import { Card } from "mdbreact";
-import TeamIntroCard from "./TeamIntroCard";
-
-const teams = [
-  {
-    teamName: "원주 DB 프로미",
-    teamImg: "http://kbl.or.kr/images/teams/logo_16.gif",
-    teamOwner: "김정남",
-    teamOwnerTmp: "-",
-    teamLeader: "신해용",
-    teamDirector: "이상범",
-    teamCoach: "이효상, 김성철",
-    teamAdress: "서울시 강남구 테헤란로 432 DB금융센터 15층",
-    teamFoundation: "원주 / DB손해보험",
-    teamContact: "02)3011-3176 / 0505)181-0092"
-  },
-  {
-    teamName: "서울 삼성 썬더스",
-    teamImg: "http://kbl.or.kr/images/teams/logo_35.gif",
-    teamOwner: "김정남",
-    teamOwnerTmp: "-",
-    teamLeader: "신해용",
-    teamDirector: "이상범",
-    teamCoach: "이효상, 김성철",
-    teamAdress: "서울시 강남구 테헤란로 432 DB금융센터 15층",
-    teamFoundation: "원주 / DB손해보험",
-    teamContact: "02)3011-3176 / 0505)181-0092"
-  }
-];
+import { Button, CardImage, CardTitle, CardText, CardBody } from "mdbreact";
+import { Row, Col } from "mdbreact";
+import axios from "axios";
 
 class TeamIntro extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: {} };
+  }
+  componentDidMount() {
+    this.TeamIntro();
+  }
+  TeamIntro() {
+    return axios.get("http://rbd.javajs.net:8100/team/16", {}).then(res => {
+      const text = res.data;
+      this.setState({ text });
+    });
+  }
   render() {
     return (
-      <Card>
-        {teams.map((team, index) => {
-          return (
-            <TeamIntroCard
-              teamName={team.teamName}
-              teamImg={team.teamImg}
-              teamOwner={team.teamOwner}
-              teamOwnerTmp={team.teamOwnerTmp}
-              teamLeader={team.teamLeader}
-              teamDirector={team.teamDirector}
-              teamCoach={team.teamCoach}
-              teamAdress={team.teamAdress}
-              teamFoundation={team.teamFoundation}
-              teamContact={team.teamContact}
-              key={index}
-            />
-          );
-        })}
-      </Card>
+      <CardBody>
+        <Row>
+          <Col>
+            <Row>
+              <Col>
+                <CardImage className="img-fluid" src="#" waves />
+              </Col>
+              <Col>
+                <CardTitle>{this.state.text.team_name}</CardTitle>
+                <CardText>
+                  구단주 : {this.state.text.team_owner}
+                  <br />
+                  구단주 대행 : {this.state.text.team_reowner}
+                  <br />
+                  단장 : {this.state.text.team_leader}
+                  <br />
+                  감독 : {this.state.text.team_director}
+                  <br />
+                  코치 : {this.state.text.team_coach}
+                  <br />
+                  주소 : {this.state.text.team_address}
+                  <br />
+                  연고지/모기업 : {this.state.text.team_company}
+                  <br />
+                </CardText>
+                <Button href="#">구단 홈페이지로 가기</Button>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </CardBody>
     );
   }
 }
 export default TeamIntro;
-{/*<Route
-          path="/team"
-          render={() => {
-            return (
-              <div>
-                <TeamInfo />
-                <Route
-                  path="/team/teaminfo"
-                  render={() => {
-                    return (
-                      <div>
-                        <TeamIntro />
-                      </div>
-                    );
-                  }}
-                />
-              </div>
-            );
-          }}
-        />*/}
