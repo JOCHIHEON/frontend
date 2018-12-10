@@ -1,24 +1,33 @@
 import React from "react";
 import { CardBody, PageItem, Pagination, PageLink } from "mdbreact";
+import { endOfMinute } from "date-fns";
 
 class Paging extends React.Component {
   constructor(props) {
     super(props);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   componentDidMount() {
     this.Paging();
   }
   Paging() {
-    const i = this.props.page.startBlock;
 
   }
+  handlePageChange(clickBlock) {
+    console.log(clickBlock)
+  }
   render() {
+    let items = [];
 
+    for (let i = this.props.page.startBlock, end = this.props.page.endBlock + 1; i <= end; i++) {
+      items.push(
+        <PageItem active={i === this.props.page.clickBlock}><PageLink className="page-link" onClick={() => this.handlePageChange(i)} value={i}>{i}</PageLink></PageItem>
+      );
+    }
     return (
-
       <CardBody>
-        <Pagination className="pagination-circle">
+        <Pagination className="pagination-circle" >
           <PageItem disabled>
             <PageLink className="page-link" value={this.props.page.startBlock}>
               <span>First</span>
@@ -30,26 +39,12 @@ class Paging extends React.Component {
               <span className="sr-only"></span>
             </PageLink>
           </PageItem>
-          <PageItem active>
-            <PageLink className="page-link">1</PageLink>
+          {items}
+          <PageItem>
+            <PageLink className="page-link" value={this.props.page.clickBlock + 1}>&raquo;</PageLink>
           </PageItem>
           <PageItem>
-            <PageLink className="page-link">2</PageLink>
-          </PageItem>
-          <PageItem>
-            <PageLink className="page-link">3</PageLink>
-          </PageItem>
-          <PageItem>
-            <PageLink className="page-link">4</PageLink>
-          </PageItem>
-          <PageItem>
-            <PageLink className="page-link">5</PageLink>
-          </PageItem>
-          <PageItem>
-            <PageLink className="page-link">&raquo;</PageLink>
-          </PageItem>
-          <PageItem>
-            <PageLink className="page-link">Last</PageLink>
+            <PageLink className="page-link" value={this.props.page.endBlock}>Last</PageLink>
           </PageItem>
         </Pagination>
       </CardBody>

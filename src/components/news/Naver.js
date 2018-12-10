@@ -14,6 +14,7 @@ class Naver extends Component {
     }
 
     handlePageChange(clickBlock) {
+        console.log('in')
         this.Naver(clickBlock);
     }
 
@@ -28,7 +29,6 @@ class Naver extends Component {
             const newslist = res.data.newsList;
             paging = res.data.paging;
             this.setState({ newslist });
-            console.log( res.data.paging);
         });
     }
 
@@ -55,17 +55,17 @@ class Naver extends Component {
                         {news}
                     </MDBListGroup>
                     <MDBRow center>
-                        <MDBCol size="5">
-                                <Pagination
-                                    activePage={paging.clickBlock}
-                                    itemsCountPerPage={15}
-                                    totalItemsCount={paging.totalData}
-                                    pageRangeDisplayed={10}
-                                    onChange={this.handlePageChange}
-                                />
-                        </MDBCol>
-                        <MDBCol>
-                            <Paging page = {paging}/>
+                        {/* <MDBCol size="5">
+                            <Pagination
+                                activePage={paging.clickBlock}
+                                itemsCountPerPage={15}
+                                totalItemsCount={paging.totalData}
+                                pageRangeDisplayed={10}
+                                onChange={this.handlePageChange}
+                            />
+                        </MDBCol> */}
+                        <MDBCol size="7">
+                            <Paging page={paging} views="news"/>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>
