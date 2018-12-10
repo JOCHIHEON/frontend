@@ -7,15 +7,8 @@ class Paging extends React.Component {
     super(props);
     this.handlePageChange = this.handlePageChange.bind(this);
   }
-
-  componentDidMount() {
-    this.Paging();
-  }
-  Paging() {
-
-  }
   handlePageChange(clickBlock) {
-    console.log(clickBlock)
+    this.props.handlePageChange(clickBlock);
   }
   render() {
     let items = [];

@@ -9,12 +9,11 @@ var paging = {};
 class Naver extends Component {
     constructor(props) {
         super(props);
-        this.state = { newslist: [] };
+        this.state = { newslist: [], click: 0 };
         this.handlePageChange = this.handlePageChange.bind(this);
     }
 
     handlePageChange(clickBlock) {
-        console.log('in')
         this.Naver(clickBlock);
     }
 
@@ -65,7 +64,7 @@ class Naver extends Component {
                             />
                         </MDBCol> */}
                         <MDBCol size="7">
-                            <Paging page={paging} views="news"/>
+                            <Paging page={paging} handlePageChange={this.handlePageChange}/>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>
