@@ -10,6 +10,7 @@ import MainTeamRank from "./main/MainTeamRank.js";
 import BoardWrite from "./board/BoardWrite.js";
 import BoardPage from "../pages/BoardPage.js";
 import RecordPage from "../pages/RecordPage.js";
+import Naver from "./news/Naver.js";
 
 class Routes extends React.Component {
   render() {
@@ -22,6 +23,8 @@ class Routes extends React.Component {
         <Route path="/board" component={BoardPage} />
         <Route path="/board/qna" component={QnABoard} />
         <Route path="/404" component={NotFoundPage} />
+
+        <Route path="/news/naver" component={Naver} />
 
         <Route path="/1" component={BoardWrite} />
         <Route path="/mainteamrank" component={MainTeamRank} />
