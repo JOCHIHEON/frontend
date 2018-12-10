@@ -127,7 +127,19 @@ class TeamInfo extends React.Component {
               <Link to="/team/recorde">팀내 선수 기록</Link>
             </Col>
           </Breadcrumb>
-          <Route path="/teaminfo/1" component={TeamIntro} />
+          <Switch>
+            <Route
+              path="/teaminfo/1"
+              render={props => <TeamIntro {...props} teamCode={16} />}
+            />
+            <Route path="/teaminfo/2" component={TeamIntro} />
+            <Route path="/teaminfo/3" component={TeamIntro} />
+            <Route path="/teaminfo/4" component={TeamIntro} />
+            <Route path="/teaminfo/5" component={TeamIntro} />
+            <Route path="/teaminfo/6" component={TeamIntro} />
+            <Route path="/teaminfo/7" component={TeamIntro} />
+            <Route path="/teaminfo/8" component={TeamIntro} />
+          </Switch>
           <CardBody />
         </Card>
       </React.Fragment>
