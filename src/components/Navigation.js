@@ -142,7 +142,6 @@ class Navigation extends Component {
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem href="/news/naver">네이버 뉴스</DropdownItem>
-                    <DropdownItem href="/news/kbl">KBL 뉴스</DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </NavItem>
