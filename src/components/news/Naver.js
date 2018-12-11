@@ -71,25 +71,14 @@ class Naver extends Component {
                                 onChange={this.handlePageChange}
                             />
                         </MDBCol> */}
-<<<<<<< HEAD
-                        <MDBCol size="7">
-                            <Paging page={paging} handlePageChange={this.handlePageChange}/>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBContainer>
-            </Fragment>
-        );
-    }
-=======
             <MDBCol size="7">
-              <Paging page={paging} views="news" />
+              <Paging page={paging} handlePageChange={this.handlePageChange} />
             </MDBCol>
           </MDBRow>
         </MDBContainer>
       </Fragment>
     );
   }
->>>>>>> 0e254333c117efc12a2e159519329be2f9e35e85
 }
 
 export default Naver;
