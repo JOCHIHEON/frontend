@@ -8,7 +8,7 @@ class TeamPage extends Component {
     return (
       <Card className="mb-5">
         <Switch>
-          <Route path="/teaminfo/1" component={TeamInfo} />
+          <Route path="/team" component={TeamInfo} />
         </Switch>
       </Card>
     );

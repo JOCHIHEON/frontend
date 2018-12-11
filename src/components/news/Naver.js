@@ -1,60 +1,68 @@
 import React, { Component, Fragment } from "react";
-import { MDBListGroup, MDBListGroupItem, MDBContainer, Breadcrumb, BreadcrumbItem, MDBRow, MDBCol } from "mdbreact";
+import {
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBContainer,
+  Breadcrumb,
+  BreadcrumbItem,
+  MDBRow,
+  MDBCol
+} from "mdbreact";
 import axios from "axios";
-import ReactPaginate from 'react-paginate';
 import Pagination from "react-js-pagination";
-import Paging from "../board/Paging.js";
+import Paging from "../Paging";
 
 var paging = {};
 class Naver extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { newslist: [], click: 0 };
-        this.handlePageChange = this.handlePageChange.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = { newslist: [] };
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
 
-    handlePageChange(clickBlock) {
-        this.Naver(clickBlock);
-    }
+  handlePageChange(clickBlock) {
+    console.log("in");
+    this.Naver(clickBlock);
+  }
 
-    componentDidMount() {
-        this.Naver();
+  componentDidMount() {
+    this.Naver();
+  }
+  Naver(clickBlock) {
+    if (clickBlock == undefined) {
+      clickBlock = 1;
     }
-    Naver(clickBlock) {
-        if (clickBlock == undefined) {
-            clickBlock = 1;
-        }
-        return axios.get("http://rbd.javajs.net:8100/news/" + clickBlock, {}).then(res => {
-            const newslist = res.data.newsList;
-            paging = res.data.paging;
-            this.setState({ newslist });
-        });
-    }
+    return axios
+      .get("http://rbd.javajs.net:8100/news/" + clickBlock, {})
+      .then(res => {
+        const newslist = res.data.newsList;
+        paging = res.data.paging;
+        this.setState({ newslist });
+      });
+  }
 
-    render() {
-        const news = this.state.newslist.map((item, i) => (
-            <MDBListGroupItem href={item.uri} target='_blank'>
-                <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">{item.title}</h5>
-                    <small>{item.date}</small>
-                </div>
-                <p className="mb-1">{item.text}</p>
-                <small>{item.company}</small>
-            </MDBListGroupItem>
-        ));
-        return (
-            <Fragment>
-                <Breadcrumb>
-                    <BreadcrumbItem active>
-                        <a>네이버 농구 최신 뉴스</a>
-                    </BreadcrumbItem>
-                </Breadcrumb>
-                <MDBContainer>
-                    <MDBListGroup>
-                        {news}
-                    </MDBListGroup>
-                    <MDBRow center>
-                        {/* <MDBCol size="5">
+  render() {
+    const news = this.state.newslist.map((item, i) => (
+      <MDBListGroupItem href={item.uri} target="_blank">
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1">{item.title}</h5>
+          <small>{item.date}</small>
+        </div>
+        <p className="mb-1">{item.text}</p>
+        <small>{item.company}</small>
+      </MDBListGroupItem>
+    ));
+    return (
+      <Fragment>
+        <Breadcrumb>
+          <BreadcrumbItem active>
+            <a>네이버 농구 최신 뉴스</a>
+          </BreadcrumbItem>
+        </Breadcrumb>
+        <MDBContainer>
+          <MDBListGroup>{news}</MDBListGroup>
+          <MDBRow center>
+            {/* <MDBCol size="5">
                             <Pagination
                                 activePage={paging.clickBlock}
                                 itemsCountPerPage={15}
@@ -63,6 +71,7 @@ class Naver extends Component {
                                 onChange={this.handlePageChange}
                             />
                         </MDBCol> */}
+<<<<<<< HEAD
                         <MDBCol size="7">
                             <Paging page={paging} handlePageChange={this.handlePageChange}/>
                         </MDBCol>
@@ -71,6 +80,16 @@ class Naver extends Component {
             </Fragment>
         );
     }
+=======
+            <MDBCol size="7">
+              <Paging page={paging} views="news" />
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </Fragment>
+    );
+  }
+>>>>>>> 0e254333c117efc12a2e159519329be2f9e35e85
 }
 
 export default Naver;

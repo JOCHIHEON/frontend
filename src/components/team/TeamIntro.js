@@ -12,10 +12,15 @@ class TeamIntro extends React.Component {
     this.TeamIntro();
   }
   TeamIntro() {
-    return axios.get("http://rbd.javajs.net:8100/team/16", {}).then(res => {
-      const text = res.data;
-      this.setState({ text });
-    });
+    const teamCode = this.props.teamCode;
+    console.log(teamCode);
+    return axios
+      .get("http://rbd.javajs.net:8100/team/" + teamCode, {})
+      .then(res => {
+        const text = res.data;
+        console.log(text);
+        this.setState({ text });
+      });
   }
   render() {
     return (

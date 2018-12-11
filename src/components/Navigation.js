@@ -85,16 +85,20 @@ class Navigation extends Component {
                     구단정보
                   </DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem href="/teaminfo/1">원주DB</DropdownItem>
-                    <DropdownItem href="/teaminfo/2">서울삼성</DropdownItem>
-                    <DropdownItem href="/teaminfo/3">서울SK</DropdownItem>
-                    <DropdownItem href="/teaminfo/4">창원LG</DropdownItem>
-                    <DropdownItem href="/teaminfo/5">고양오리온스</DropdownItem>
-                    <DropdownItem href="/teaminfo/6">인천전자랜드</DropdownItem>
-                    <DropdownItem href="/teaminfo/7">전주KCC</DropdownItem>
-                    <DropdownItem href="/teaminfo/8">안양KGC</DropdownItem>
-                    <DropdownItem href="/teaminfo/9">부산KT</DropdownItem>
-                    <DropdownItem href="/teaminfo/10">
+                    <DropdownItem href="/team/info/1">원주DB</DropdownItem>
+                    <DropdownItem href="/team/info/2">서울삼성</DropdownItem>
+                    <DropdownItem href="/team/info/3">서울SK</DropdownItem>
+                    <DropdownItem href="/team/info/4">창원LG</DropdownItem>
+                    <DropdownItem href="/team/info/5">
+                      고양오리온스
+                    </DropdownItem>
+                    <DropdownItem href="/team/info/6">
+                      인천전자랜드
+                    </DropdownItem>
+                    <DropdownItem href="/team/info/7">전주KCC</DropdownItem>
+                    <DropdownItem href="/team/info/8">안양KGC</DropdownItem>
+                    <DropdownItem href="/team/info/9">부산KT</DropdownItem>
+                    <DropdownItem href="/team/info/10">
                       울산현대모비스
                     </DropdownItem>
                   </DropdownMenu>

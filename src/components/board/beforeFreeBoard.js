@@ -4,8 +4,8 @@ import { Table, TableBody, TableHead } from "mdbreact";
 import { Card, Col, Row } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
-import Paging from "./Paging";
 import axios from "axios";
+import Paging from "../Paging";
 
 class FreeBoard extends Component {
   constructor(props) {
