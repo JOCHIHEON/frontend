@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Iframe,
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody
-} from "mdbreact";
+import { Row, Col } from "mdbreact";
 import MainPlayerRank from "../components/main/MainPlayerRank";
 import MainTeamRank from "../components/main/MainTeamRank";
 import MainSchedule from "../components/main/MainSchedule";

@@ -6,8 +6,7 @@ import {
   ListGroup,
   Badge,
   Button,
-  ListGroupItem,
-  FormInline
+  ListGroupItem
 } from "mdbreact";
 
 const MainTeamRank = () => {

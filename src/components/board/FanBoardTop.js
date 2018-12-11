@@ -11,9 +11,7 @@ class FanBoardTop extends Component {
         className="d-flex align-items-center justify-content-between"
       >
         <Breadcrumb>
-          <BreadcrumbItem active>
-            <a>커뮤니티</a>
-          </BreadcrumbItem>
+          <BreadcrumbItem active>커뮤니티</BreadcrumbItem>
           <BreadcrumbItem>팬게시판</BreadcrumbItem>
           <BreadcrumbItem>props</BreadcrumbItem>
         </Breadcrumb>

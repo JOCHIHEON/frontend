@@ -23,9 +23,7 @@ class Schedule extends React.Component {
             className="d-flex align-items-center justify-content-between"
           >
             <Breadcrumb>
-              <BreadcrumbItem>
-                <a>일정/결과</a>
-              </BreadcrumbItem>
+              <BreadcrumbItem>일정/결과</BreadcrumbItem>
               <BreadcrumbItem active>경기일정</BreadcrumbItem>
             </Breadcrumb>
           </CardBody>

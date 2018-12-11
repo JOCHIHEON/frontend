@@ -1,79 +1,78 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Col, Row } from "mdbreact";
 import { Card, CardBody } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 import { FormInline } from "mdbreact";
-import { ListGroup, ListGroupItem, Container } from "mdbreact";
-import { Route, Switch } from "react-router-dom";
-import TeamInfo1 from "./TeamInfo1";
+import { Route } from "react-router-dom";
 import TeamIntro from "./TeamIntro";
 import TeamBanner from "./TeamBanner";
 import TeamMenu from "./TeamMenu";
+import TeamScheReco from "./TeamScheReco";
+import TeamMember from "./TeamMember";
+import TeamPlayerReco from "./TeamPlayerReco";
 
 class TeamInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      teamBanners: [
+      teams: [
         {
-          link: "/team/info/1",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/215.png",
+          tCode: "16",
+          link: "/team/16",
+          teamImg: "http://kbl.or.kr/images/teams/logo_16.gif",
           teamName: "DB"
         },
         {
-          link: "/team/info/2",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/212.png",
+          tCode: "35",
+          link: "/team/35",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_35.gif",
           teamName: "삼성"
         },
         {
-          link: "/team/info/3",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/211.png",
+          tCode: "55",
+          link: "/team/55",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_55.gif",
           teamName: "SK"
         },
         {
-          link: "/team/info/4",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/218.png",
+          tCode: "50",
+          link: "/team/50",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_50.gif",
           teamName: "LG"
         },
         {
-          link: "/team/info/5",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/209.png",
+          tCode: "30",
+          link: "/team/30",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_30.gif",
           teamName: "오리온스"
         },
         {
-          link: "/team/info/6",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/216.png",
+          tCode: "65",
+          link: "/team/65",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_65.gif",
           teamName: "전자랜드"
         },
         {
-          link: "/team/info/7",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/217.png",
+          tCode: "60",
+          link: "/team/60",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_60.gif",
           teamName: "KCC"
         },
         {
-          link: "/team/info/8",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/213.png",
+          tCode: "70",
+          link: "/team/70",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_70.gif",
           teamName: "KGC"
         },
         {
-          link: "/team/info/9",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/210.png",
+          tCode: "06",
+          link: "/team/06",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_06.gif",
           teamName: "KT"
         },
         {
-          link: "/team/info/10",
-          teamImg:
-            "https://thumb.named.com/normal/resize/72x45/sports/basketball/team/214.png",
+          tCode: "10",
+          link: "/team/10",
+          teamImg: "http://www.kbl.or.kr/images/teams/logo_10.gif",
           teamName: "모비스"
         }
       ],
@@ -82,9 +81,26 @@ class TeamInfo extends React.Component {
     this.handleTeamChange = this.handleTeamChange.bind(this);
   }
   handleTeamChange() {
-    this.setState({ menuLink: "/team/info/1" });
+    this.setState({ menuLink: "/team/1" });
   }
   render() {
+    const routes = this.state.teams.map((route, inex) => (
+      <div key={inex}>
+        <Route
+          path={route.link}
+          render={props => <TeamMenu {...props} tCode={route.tCode} />}
+        />
+        <Route
+          path={route.link + "/intro"}
+          render={props => (
+            <TeamIntro {...props} tCode={route.tCode} teamImg={route.teamImg} />
+          )}
+        />
+        <Route path={route.link + "/schedule"} component={TeamScheReco} />
+        <Route path={route.link + "/member"} component={TeamMember} />
+        <Route path={route.link + "/record"} component={TeamPlayerReco} />
+      </div>
+    ));
     return (
       <React.Fragment>
         <h3>
@@ -95,10 +111,10 @@ class TeamInfo extends React.Component {
         </h3>
         <Card md="10">
           <FormInline m="5">
-            {this.state.teamBanners.map((teamBanner, i) => {
+            {this.state.teams.map((teamBanner, i) => {
               return (
                 <TeamBanner
-                  link={teamBanner.link}
+                  link={teamBanner.link + "/intro"}
                   teamImg={teamBanner.teamImg}
                   teamName={teamBanner.teamName}
                   key={i}
@@ -106,53 +122,7 @@ class TeamInfo extends React.Component {
               );
             })}
           </FormInline>
-          <Switch>
-            <Route
-              path="/team/info/1"
-              render={props => (
-                <div>
-                  <TeamMenu {...props} teamCode={16} />
-                  <TeamIntro {...props} link={"/team/intro/1"} />
-                </div>
-              )}
-            />
-            <Route
-              path="/team/intro/2"
-              render={props => <TeamIntro {...props} teamCode={35} />}
-            />
-            <Route
-              path="/team/intro/3"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-            <Route
-              path="/team/intro/4"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-            <Route
-              path="/team/intro/5"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-            <Route
-              path="/team/intro/6"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-            <Route
-              path="/team/intro/7"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-            <Route
-              path="/team/intro/8"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-            <Route
-              path="/team/intro/9"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-            <Route
-              path="/team/intro/10"
-              render={props => <TeamIntro {...props} teamCode={16} />}
-            />
-          </Switch>
+          {routes}
           <CardBody />
         </Card>
       </React.Fragment>

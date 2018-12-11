@@ -12,13 +12,11 @@ class TeamIntro extends React.Component {
     this.TeamIntro();
   }
   TeamIntro() {
-    const teamCode = this.props.teamCode;
-    console.log(teamCode);
+    const tCode = this.props.tCode;
     return axios
-      .get("http://rbd.javajs.net:8100/team/" + teamCode, {})
+      .get("http://rbd.javajs.net:8100/team/" + tCode, {})
       .then(res => {
         const text = res.data;
-        console.log(text);
         this.setState({ text });
       });
   }
@@ -29,7 +27,11 @@ class TeamIntro extends React.Component {
           <Col>
             <Row>
               <Col>
-                <CardImage className="img-fluid" src="#" waves />
+                <CardImage
+                  className="img-fluid mx-auto"
+                  src={this.props.teamImg}
+                  waves
+                />
               </Col>
               <Col>
                 <CardTitle>{this.state.text.team_name}</CardTitle>

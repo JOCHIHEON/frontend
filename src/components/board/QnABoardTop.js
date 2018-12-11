@@ -11,9 +11,7 @@ class QnABoardTop extends Component {
         className="d-flex align-items-center justify-content-between"
       >
         <Breadcrumb>
-          <BreadcrumbItem>
-            <a>커뮤니티</a>
-          </BreadcrumbItem>
+          <BreadcrumbItem>커뮤니티</BreadcrumbItem>
           <BreadcrumbItem active>Q&A</BreadcrumbItem>
         </Breadcrumb>
         <FormInline className="md-form m-0">

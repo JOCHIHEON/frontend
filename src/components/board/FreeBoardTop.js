@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Fa, FormInline } from "mdbreact";
+import { FormInline } from "mdbreact";
 import { CardBody } from "mdbreact";
-import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
+import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 
 class FreeBoardTop extends Component {
   render() {

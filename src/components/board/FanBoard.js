@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Table, TableBody, TableHead, Col, Row } from "mdbreact";
-import { Fa, FormInline } from "mdbreact";
-import { Card, CardBody } from "mdbreact";
-import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
+import { FormInline } from "mdbreact";
+import { Card } from "mdbreact";
+import { Breadcrumb, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
 import axios from "axios";
 
@@ -24,7 +24,6 @@ class FanBoard extends Component {
   render() {
     console.log(this.state.board);
     const boards = this.state.board.map((item, i) => (
-      
       <tr>
         <td>{item.fan_no}</td>
         <td>

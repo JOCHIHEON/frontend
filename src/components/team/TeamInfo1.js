@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "mdbreact";
 import TeamIntro from "./TeamIntro";
 
 const teams = [
