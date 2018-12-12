@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  CardText,
-  Col,
-  Row
-} from "mdbreact";
+import { Card, CardBody, CardHeader, CardTitle, CardText } from "mdbreact";
 import axios from "axios";
 
 class TeamMember extends Component {
@@ -19,44 +11,40 @@ class TeamMember extends Component {
     this.TeamMember();
   }
   TeamMember() {
-    return axios.get("http://rbd.javajs.net:8100/player/16", {}).then(res => {
-      const members = res.data;
-      this.setState({ members });
-      console.log(this.state.members[0].player_no);
-    });
+    const tCode = this.props.tCode;
+    return axios
+      .get("http://rbd.javajs.net:8100/player/" + tCode, {})
+      .then(res => {
+        const members = res.data;
+        this.setState({ members });
+      });
   }
   render() {
     const members = this.state.members.map((member, i) => (
-      <Col>
-        <Card className="mt-3 ml-3 mr-3">
-          <CardBody>
-            <img
-              className="rounded-circle"
-              src={
-                "http://kbl.or.kr/images/playersPhoto/" +
-                member.player_no +
-                ".jpg?ver=0.1"
-              }
-            />
-            <CardText>
-              {member.player_name}
-              {member.player_position}
-            </CardText>
-          </CardBody>
-        </Card>
-      </Col>
+      <Card className="mt-3 ml-3 mr-3 h-auto d-inline-block">
+        <CardBody>
+          <img
+            className="rounded-circle"
+            src={
+              "http://kbl.or.kr/images/playersPhoto/" +
+              member.player_no +
+              ".jpg?ver=0.1"
+            }
+          />
+          <CardText>
+            {member.player_name}
+            {member.player_position}
+          </CardText>
+        </CardBody>
+      </Card>
     ));
     return (
-      <div className="mt-3 ml-3 mr-3">
+      <React.Fragment>
         <CardHeader>
           <CardTitle>선수소개</CardTitle>
         </CardHeader>
-        <CardBody>
-          <Row>
-            <Row>{members}</Row>
-          </Row>
-        </CardBody>
-      </div>
+        <CardBody>{members}</CardBody>
+      </React.Fragment>
     );
   }
 }

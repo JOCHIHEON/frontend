@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody } from "mdbreact";
+import { Card } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 import { FormInline } from "mdbreact";
 import { Route } from "react-router-dom";
@@ -75,13 +75,8 @@ class TeamInfo extends React.Component {
           teamImg: "http://www.kbl.or.kr/images/teams/logo_10.gif",
           teamName: "모비스"
         }
-      ],
-      menuLink: ""
+      ]
     };
-    this.handleTeamChange = this.handleTeamChange.bind(this);
-  }
-  handleTeamChange() {
-    this.setState({ menuLink: "/team/1" });
   }
   render() {
     const routes = this.state.teams.map((route, inex) => (
@@ -97,7 +92,10 @@ class TeamInfo extends React.Component {
           )}
         />
         <Route path={route.link + "/schedule"} component={TeamScheReco} />
-        <Route path={route.link + "/member"} component={TeamMember} />
+        <Route
+          path={route.link + "/member"}
+          render={props => <TeamMember {...props} tCode={route.tCode} />}
+        />
         <Route path={route.link + "/record"} component={TeamPlayerReco} />
       </div>
     ));
@@ -106,7 +104,7 @@ class TeamInfo extends React.Component {
         <h3>
           <Breadcrumb>
             <BreadcrumbItem>구단정보</BreadcrumbItem>
-            <BreadcrumbItem active>원주DB</BreadcrumbItem>
+            <BreadcrumbItem active>팀이름</BreadcrumbItem>
           </Breadcrumb>
         </h3>
         <Card md="10">
@@ -123,7 +121,6 @@ class TeamInfo extends React.Component {
             })}
           </FormInline>
           {routes}
-          <CardBody />
         </Card>
       </React.Fragment>
     );

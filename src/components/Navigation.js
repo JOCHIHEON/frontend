@@ -110,8 +110,8 @@ class Navigation extends Component {
                     선수정보
                   </DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem href="/players/detail">선수상세</DropdownItem>
-                    <DropdownItem href="/players/rank">선수순위</DropdownItem>
+                    <DropdownItem href="/player/detail">선수상세</DropdownItem>
+                    <DropdownItem href="/player/rank">선수순위</DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </NavItem>

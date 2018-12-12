@@ -7,9 +7,7 @@ class TeamPage extends Component {
   render() {
     return (
       <Card className="mb-5">
-        <Switch>
-          <Route path="/team" component={TeamInfo} />
-        </Switch>
+        <TeamInfo />
       </Card>
     );
   }

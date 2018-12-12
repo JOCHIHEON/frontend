@@ -1,19 +1,15 @@
 import React from "react";
-import {
-  Container,
-  Button,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalFooter
-} from "mdbreact";
-import { Input, MDBBtn } from "mdbreact";
+import { Container, Row, Col } from "mdbreact";
+import { input, MDBBtn } from "mdbreact";
+import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "mdbreact";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      requestID: "",
+      requestPW: ""
     };
   }
 
@@ -21,6 +17,15 @@ class Login extends React.Component {
     this.setState({
       modal: !this.state.modal
     });
+  };
+
+  submitHandler = event => {
+    event.preventDefault();
+    event.target.className += " was-validated";
+  };
+
+  changeHandler = event => {
+    this.setState({ ...this.state, [event.target.name]: event.target.value });
   };
 
   render() {
@@ -32,7 +37,7 @@ class Login extends React.Component {
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
-          size="sm"
+          size="lg"
           side
           position="top-right"
         >
@@ -44,31 +49,163 @@ class Login extends React.Component {
             로그인
           </ModalHeader>
           <ModalBody>
-            <form className="mx-3 grey-text">
-              <Input
-                label="아이디"
-                icon="user"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <Input
-                label="비밀번호"
-                icon="lock"
-                group
-                type="password"
-                validate
-              />
-            </form>
+            <Col md="">
+              <form
+                className="needs-validation"
+                onSubmit={this.submitHandler}
+                noValidate
+              >
+                <Row>
+                  <div className="col-md-4 mb-3">
+                    <label
+                      htmlFor="defaultFormRegisterNameEx"
+                      className="grey-text"
+                    >
+                      First name
+                    </label>
+                    <input
+                      value={this.state.fname}
+                      name="fname"
+                      onChange={this.changeHandler}
+                      type="text"
+                      id="defaultFormRegisterNameEx"
+                      className="form-control"
+                      placeholder="First name"
+                      required
+                    />
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                  <div className="col-md-4 mb-3">
+                    <label
+                      htmlFor="defaultFormRegisterEmailEx2"
+                      className="grey-text"
+                    >
+                      Last name
+                    </label>
+                    <input
+                      value={this.state.lname}
+                      name="lname"
+                      onChange={this.changeHandler}
+                      type="text"
+                      id="defaultFormRegisterEmailEx2"
+                      className="form-control"
+                      placeholder="Last name"
+                      required
+                    />
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                  <div className="col-md-4 mb-3">
+                    <label
+                      htmlFor="defaultFormRegisterConfirmEx3"
+                      className="grey-text"
+                    >
+                      Email
+                    </label>
+                    <input
+                      value={this.state.email}
+                      onChange={this.changeHandler}
+                      type="email"
+                      id="defaultFormRegisterConfirmEx3"
+                      className="form-control"
+                      name="email"
+                      placeholder="Your Email address"
+                    />
+                    <small id="emailHelp" className="form-text text-muted">
+                      We'll never share your email with anyone else.
+                    </small>
+                  </div>
+                </Row>
+                <Row>
+                  <div className="col-md-4 mb-3">
+                    <label
+                      htmlFor="defaultFormRegisterPasswordEx4"
+                      className="grey-text"
+                    >
+                      City
+                    </label>
+                    <input
+                      value={this.state.city}
+                      onChange={this.changeHandler}
+                      type="text"
+                      id="defaultFormRegisterPasswordEx4"
+                      className="form-control"
+                      name="city"
+                      placeholder="City"
+                      required
+                    />
+                    <div className="invalid-feedback">
+                      Please provide a valid city.
+                    </div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                  <div className="col-md-4 mb-3">
+                    <label
+                      htmlFor="defaultFormRegisterPasswordEx4"
+                      className="grey-text"
+                    >
+                      State
+                    </label>
+                    <input
+                      value={this.state.state}
+                      onChange={this.changeHandler}
+                      type="text"
+                      id="defaultFormRegisterPasswordEx4"
+                      className="form-control"
+                      name="state"
+                      placeholder="State"
+                      required
+                    />
+                    <div className="invalid-feedback">
+                      Please provide a valid state.
+                    </div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                  <div className="col-md-4 mb-3">
+                    <label
+                      htmlFor="defaultFormRegisterPasswordEx4"
+                      className="grey-text"
+                    >
+                      Zip
+                    </label>
+                    <input
+                      value={this.state.zip}
+                      onChange={this.changeHandler}
+                      type="text"
+                      id="defaultFormRegisterPasswordEx4"
+                      className="form-control"
+                      name="zip"
+                      placeholder="Zip"
+                      required
+                    />
+                    <div className="invalid-feedback">
+                      Please provide a valid zip.
+                    </div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                </Row>
+                <div className="col-md-4 mb-3">
+                  <div className="form-check pl-0">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="invalidCheck"
+                      required
+                    />
+                    <label className="form-check-label" htmlFor="invalidCheck">
+                      Agree to terms and conditions
+                    </label>
+                    <div className="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
+                  </div>
+                </div>
+                <button className="btn btn-unique" type="submit">
+                  Submit Form
+                </button>
+              </form>
+            </Col>
           </ModalBody>
-          <ModalFooter className="justify-content-center">
-            <Button color="primary">로그인</Button>
-            <Button color="secondary" onClick={this.toggle}>
-              닫기
-            </Button>{" "}
-          </ModalFooter>
         </Modal>
       </div>
     );
