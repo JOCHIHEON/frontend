@@ -30,20 +30,22 @@ class Login extends React.Component {
 
   onSubmit() {
     return axios
-      .post(
-        "http://rbd.javajs.net:8100/login" +
-          { ui_id: this.state.requestID } +
-          { ui_pwd: this.state.requestPW }
-      )
+      .post("http://rbd.javajs.net:8100/login", {
+        ui_id: "test1",
+        ui_pwd: "test1"
+      })
       .then(res => {
         if (res == 1) {
-          this.props.onSuccess(this.state.requestID);
+          console.log(res);
         } else {
           this.setState({
             requestID: "",
             requestPW: ""
           });
         }
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
   render() {

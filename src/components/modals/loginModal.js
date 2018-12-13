@@ -3,6 +3,8 @@ import { Container, Row, Col } from "mdbreact";
 import { input, MDBBtn } from "mdbreact";
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "mdbreact";
 
+import axios from "axios";
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -19,9 +21,36 @@ class Login extends React.Component {
     });
   };
 
+  onSubmit() {
+    let userInfo = {
+      ui_id: this.state.requestID,
+      ui_pwd: this.state.requestPW
+    };
+    return axios
+      .post(
+        "http://rbd.javajs.net:8100/login" +
+          { ui_id: this.state.requestID } +
+          { ui_pwd: this.state.requestPW }
+      )
+      .then(res => {
+        if (res == 1) {
+          this.props.onSuccess(this.state.requestID);
+        } else {
+          this.setState({
+            requestID: "",
+            requestPW: ""
+          });
+        }
+      });
+  }
+
   submitHandler = event => {
     event.preventDefault();
     event.target.className += " was-validated";
+    console.log(this.state.requestID);
+    console.log(this.state.requestPW);
+
+    this.onSubmit();
   };
 
   changeHandler = event => {
@@ -61,147 +90,53 @@ class Login extends React.Component {
                       htmlFor="defaultFormRegisterNameEx"
                       className="grey-text"
                     >
-                      First name
+                      아이디
                     </label>
                     <input
-                      value={this.state.fname}
-                      name="fname"
+                      value={this.state.requestID}
+                      name="requestID"
                       onChange={this.changeHandler}
                       type="text"
                       id="defaultFormRegisterNameEx"
                       className="form-control"
-                      placeholder="First name"
+                      placeholder="ID"
                       required
                     />
-                    <div className="valid-feedback">Looks good!</div>
+                    <div className="invalid-feedback">
+                      아이디를 입력해주세요.
+                    </div>
                   </div>
                   <div className="col-md-4 mb-3">
                     <label
                       htmlFor="defaultFormRegisterEmailEx2"
                       className="grey-text"
                     >
-                      Last name
+                      비밀번호
                     </label>
                     <input
-                      value={this.state.lname}
-                      name="lname"
+                      value={this.state.requestPW}
+                      name="requestPW"
                       onChange={this.changeHandler}
-                      type="text"
+                      type="password"
                       id="defaultFormRegisterEmailEx2"
                       className="form-control"
-                      placeholder="Last name"
+                      placeholder="PassWord"
                       required
                     />
-                    <div className="valid-feedback">Looks good!</div>
-                  </div>
-                  <div className="col-md-4 mb-3">
-                    <label
-                      htmlFor="defaultFormRegisterConfirmEx3"
-                      className="grey-text"
-                    >
-                      Email
-                    </label>
-                    <input
-                      value={this.state.email}
-                      onChange={this.changeHandler}
-                      type="email"
-                      id="defaultFormRegisterConfirmEx3"
-                      className="form-control"
-                      name="email"
-                      placeholder="Your Email address"
-                    />
-                    <small id="emailHelp" className="form-text text-muted">
-                      We'll never share your email with anyone else.
-                    </small>
+                    <div className="invalid-feedback">
+                      비밀번호를 입력해주세요.
+                    </div>
                   </div>
                 </Row>
-                <Row>
-                  <div className="col-md-4 mb-3">
-                    <label
-                      htmlFor="defaultFormRegisterPasswordEx4"
-                      className="grey-text"
-                    >
-                      City
-                    </label>
-                    <input
-                      value={this.state.city}
-                      onChange={this.changeHandler}
-                      type="text"
-                      id="defaultFormRegisterPasswordEx4"
-                      className="form-control"
-                      name="city"
-                      placeholder="City"
-                      required
-                    />
-                    <div className="invalid-feedback">
-                      Please provide a valid city.
-                    </div>
-                    <div className="valid-feedback">Looks good!</div>
-                  </div>
-                  <div className="col-md-4 mb-3">
-                    <label
-                      htmlFor="defaultFormRegisterPasswordEx4"
-                      className="grey-text"
-                    >
-                      State
-                    </label>
-                    <input
-                      value={this.state.state}
-                      onChange={this.changeHandler}
-                      type="text"
-                      id="defaultFormRegisterPasswordEx4"
-                      className="form-control"
-                      name="state"
-                      placeholder="State"
-                      required
-                    />
-                    <div className="invalid-feedback">
-                      Please provide a valid state.
-                    </div>
-                    <div className="valid-feedback">Looks good!</div>
-                  </div>
-                  <div className="col-md-4 mb-3">
-                    <label
-                      htmlFor="defaultFormRegisterPasswordEx4"
-                      className="grey-text"
-                    >
-                      Zip
-                    </label>
-                    <input
-                      value={this.state.zip}
-                      onChange={this.changeHandler}
-                      type="text"
-                      id="defaultFormRegisterPasswordEx4"
-                      className="form-control"
-                      name="zip"
-                      placeholder="Zip"
-                      required
-                    />
-                    <div className="invalid-feedback">
-                      Please provide a valid zip.
-                    </div>
-                    <div className="valid-feedback">Looks good!</div>
-                  </div>
-                </Row>
-                <div className="col-md-4 mb-3">
-                  <div className="form-check pl-0">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="invalidCheck"
-                      required
-                    />
-                    <label className="form-check-label" htmlFor="invalidCheck">
-                      Agree to terms and conditions
-                    </label>
-                    <div className="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
-                </div>
                 <button className="btn btn-unique" type="submit">
-                  Submit Form
+                  로그인
+                </button>
+                <button
+                  className="btn btn-unique"
+                  type="submit"
+                  onClick={this.toggle}
+                >
+                  닫기
                 </button>
               </form>
             </Col>
