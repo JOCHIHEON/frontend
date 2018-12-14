@@ -3,6 +3,7 @@ import { FormInline, Button, Fa, CardHeader, CardBody } from "mdbreact";
 import { Card, Breadcrumb, BreadcrumbItem, CardText } from "mdbreact";
 import axios from "axios";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+
 function getCaret(direction) {
   if (direction === "asc") {
     return <span>▲</span>;
@@ -13,6 +14,12 @@ function getCaret(direction) {
   return <span>▲/▼</span>;
 }
 
+function player_nameFormatter(cell, row) {
+  return `<a href="/player/detail/${cell}">${cell}</a>`;
+}
+function team_codeFormatter(cell, row) {
+  return `${cell}`;
+}
 class PlayerDetail extends Component {
   constructor(props) {
     super(props);
@@ -41,49 +48,48 @@ class PlayerDetail extends Component {
   };
 
   render() {
-    // const players = this.state.players.map((player, i) => (
-    //   <tr>
-    //     <td>
-    //       <a>
-    //         <h6>{player.player_name}</h6>
-    //         <p>[{player.team_code}]</p>
-    //       </a>
-    //     </td>
-    //   </tr>
-    // ));
+    const players = this.state.players.map((player, i) => (
+      <tr>
+        <td>
+          <a>
+            <h6>{player.player_name}</h6>
+          </a>
+        </td>
+        <td>
+          <p>{player.team_code}</p>
+        </td>
+      </tr>
+    ));
     const options = {
       paginationPanel: this.renderPaginationPanel
     };
     return (
-      <React.Fragment>
-        <h3>
-          <Breadcrumb>
-            <BreadcrumbItem>선수상세</BreadcrumbItem>
-          </Breadcrumb>
-        </h3>
-        <Card md="10">
-          <CardBody>
-            <h4>선수목록</h4>
-            <BootstrapTable
-              ref="table"
-              data={this.state.players}
-              pagination={true}
-              search={true}
-              options={options}
-              hover
+      <Card md="10">
+        <CardHeader>
+          <h5>선수목록</h5>
+        </CardHeader>
+        <CardBody>
+          <BootstrapTable
+            ref="table"
+            data={this.state.players}
+            pagination={true}
+            search={true}
+            options={options}
+            hover
+          >
+            <TableHeaderColumn
+              dataField="player_name"
+              dataFormat={player_nameFormatter}
+              thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+              isKey={true}
+              caretRender={getCaret}
+              dataSort
             >
-              <TableHeaderColumn
-                dataField="player_name"
-                thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
-                isKey={true}
-              >
-                선수명
-              </TableHeaderColumn>
-              <TableHeaderColumn>팀명</TableHeaderColumn>
-            </BootstrapTable>
-          </CardBody>
-        </Card>
-      </React.Fragment>
+              선수명
+            </TableHeaderColumn>
+          </BootstrapTable>
+        </CardBody>
+      </Card>
     );
   }
 }
