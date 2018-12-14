@@ -104,7 +104,6 @@ class TeamInfo extends React.Component {
         <h3>
           <Breadcrumb>
             <BreadcrumbItem>구단정보</BreadcrumbItem>
-            <BreadcrumbItem active>팀이름</BreadcrumbItem>
           </Breadcrumb>
         </h3>
         <Card md="10">

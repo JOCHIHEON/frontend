@@ -25,12 +25,17 @@ class Login extends React.Component {
     this.setState({
       modal: !this.state.modal
     });
+    if (this.state.title == "로그아웃") {
+      localStorage.clear();
+      alert("로그아웃 되셨습니다.");
+      window.location.reload();
+    }
   };
 
   onSubmit() {
     let ui_id = this.state.requestID;
     let ui_pwd = this.state.requestPW;
-    /*
+    /* 글쓰기
       var user = localStorage.getItem("user")
       var token = user.token;
       var id = user.ui_id
@@ -59,6 +64,9 @@ class Login extends React.Component {
           localStorage.setItem("user", res.data);
           this.toggle();
           this.state.title = "로그아웃";
+          if (localStorage != null) {
+            window.location.reload();
+          }
         } else {
           this.setState({
             requestID: "",
