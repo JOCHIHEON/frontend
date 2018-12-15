@@ -27,7 +27,7 @@ class PlayerList extends Component {
       players: []
     };
     this.options = {
-      defaultSortName: "team_code", // default sort column name
+      defaultSortName: "player_name", // default sort column name
       defaultSortOrder: "desc" // default sort order
     };
   }

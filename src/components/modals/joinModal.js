@@ -209,7 +209,7 @@ class Join extends React.Component {
                   type="email"
                   id="defaultFormRegisterEmailEx2"
                   className="form-control"
-                  placeholder="examplde@gmail.com"
+                  placeholder="example@gmail.com"
                   required
                 />
                 <div className="invalid-feedback">
