@@ -32,7 +32,7 @@ class Paging extends React.Component {
     return (
       <CardBody>
         <Pagination className="pagination-circle">
-          <PageItem disabled>
+          <PageItem>
             <PageLink className="page-link" value={this.props.page.startBlock}>
               <span>First</span>
             </PageLink>

@@ -54,7 +54,7 @@ class Naver extends Component {
       <Fragment>
         <Breadcrumb>
           <BreadcrumbItem active>
-            <a>네이버 농구 최신 뉴스</a>
+            <h3>네이버 농구 최신 뉴스</h3>
           </BreadcrumbItem>
         </Breadcrumb>
         <MDBContainer>
