@@ -42,7 +42,7 @@ class TeamRank extends Component {
         </h3>
         <Row>
           <Col md="3">
-            <Card>
+            <Card className="mb-5 mt-3">
               <h4>
                 <div className="sub_title">
                   <CardBody>경기기록</CardBody>
@@ -59,9 +59,9 @@ class TeamRank extends Component {
             </Card>
           </Col>
           <Col md="9">
-            <Card className="mb-5">
+            <Card className="mb-5 mt-3">
               <Table className="table table-hover">
-                <TableHead color="red lighten-4">
+                <TableHead>
                   <tr>
                     <th>순위</th>
                     <th>팀</th>

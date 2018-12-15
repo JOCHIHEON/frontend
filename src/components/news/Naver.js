@@ -9,7 +9,6 @@ import {
   MDBCol
 } from "mdbreact";
 import axios from "axios";
-import Pagination from "react-js-pagination";
 import Paging from "../Paging";
 
 var paging = {};
@@ -21,7 +20,6 @@ class Naver extends Component {
   }
 
   handlePageChange(clickBlock) {
-    console.log("in");
     this.Naver(clickBlock);
   }
 
@@ -56,7 +54,7 @@ class Naver extends Component {
       <Fragment>
         <Breadcrumb>
           <BreadcrumbItem active>
-            <a>네이버 농구 최신 뉴스</a>
+            <h3>네이버 농구 최신 뉴스</h3>
           </BreadcrumbItem>
         </Breadcrumb>
         <MDBContainer>

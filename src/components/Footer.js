@@ -17,8 +17,9 @@ const Footer = () => {
               농구구기록실 rebound.com(리바운드)는 농구팬들을 위해운영되는
               사이트입니다.
             </p>
-            <Fa icon="dribbble" className="mr-3" />
+
             <p>
+              <Fa icon="dribbble" className="mr-3" />
               리바운드에서 제공하는 한국 프로농구 기록및 통계데이터는 오류가
               생기면 KBL과 차이가 있을 수 있습니다.
             </p>
@@ -32,20 +33,16 @@ const Footer = () => {
             <h5 className="text-md-right">The makers</h5>
             <ul>
               <li className="list-unstyled text-md-right">
-                <a href="#!">
-                  Jo Chiheon
-                  <Fa icon="github" className="mr-3" />
+                <a href="https://github.com/JOCHIHEON">
+                  <span>
+                    Chiheon Jo
+                    <Fa icon="github" className="mr-3" />
+                  </span>
                 </a>
               </li>
               <li className="list-unstyled text-md-right">
-                <a href="#!">
-                  Park Gyuwon
-                  <Fa icon="github" className="mr-3" />
-                </a>
-              </li>
-              <li className="list-unstyled text-md-right">
-                <a href="#!">
-                  Jung Jina
+                <a href="https://github.com/JINAJUNG">
+                  Jina Jung
                   <Fa icon="github" className="mr-3" />
                 </a>
               </li>
