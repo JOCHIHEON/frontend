@@ -11,7 +11,7 @@ function setHtml(req,res,next) {
     next();
 }
 
-app.get('/*', setHtml);
+app.use('/*', setHtml);
 
 app.listen(80,function(){
     console.log('start express server (port:80)');
