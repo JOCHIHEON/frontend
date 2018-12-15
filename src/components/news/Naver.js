@@ -9,7 +9,6 @@ import {
   MDBCol
 } from "mdbreact";
 import axios from "axios";
-import Pagination from "react-js-pagination";
 import Paging from "../Paging";
 
 var paging = {};
@@ -21,7 +20,6 @@ class Naver extends Component {
   }
 
   handlePageChange(clickBlock) {
-    console.log("in");
     this.Naver(clickBlock);
   }
 

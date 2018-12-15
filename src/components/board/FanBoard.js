@@ -22,7 +22,6 @@ class FanBoard extends Component {
     });
   }
   render() {
-    console.log(this.state.board);
     const boards = this.state.board.map((item, i) => (
       <tr>
         <td>{item.fan_no}</td>
