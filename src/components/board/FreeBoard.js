@@ -28,6 +28,18 @@ class FreeBoard extends Component {
       this.setState({ board });
     });
   }
+  BoardBest(clickBlock) {
+    if (clickBlock == undefined) {
+      clickBlock = 1;
+    }
+    return axios
+      .get("http://rbd.javajs.net:8100/freeboard/best", {})
+      .then(res => {
+        const bestBoard = res.data;
+        paging = res.data.paging;
+        this.setState({ bestBoard });
+      });
+  }
   render() {
     const boards = this.state.board.map((item, i) => (
       <tr>
@@ -58,7 +70,11 @@ class FreeBoard extends Component {
               <Button color="grey" className="boardbtn_all" href="/board/free">
                 전체
               </Button>
-              <Button color="red" className="boardbtn_best" href="#">
+              <Button
+                onclick={this.BoardBest}
+                color="red"
+                className="boardbtn_best"
+              >
                 베스트
               </Button>
               <Button

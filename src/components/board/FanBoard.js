@@ -7,21 +7,38 @@ import { Breadcrumb, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
 import axios from "axios";
 
+var paging = {};
 class FanBoard extends Component {
   constructor(props) {
     super(props);
-    this.state = { board: [] };
+    this.state = {
+      board: [],
+      sort: {}
+    };
   }
   componentDidMount() {
     this.FanBoard();
   }
   FanBoard() {
-    return axios.get("http://rbd.javajs.net:8100/fanboard", {}).then(res => {
-      const board = res.data;
-      this.setState({ board });
+    if (this.state.sort === null) {
+      this.setState({
+        sort: "all"
+      });
+    }
+    return axios
+      .get("http://rbd.javajs.net:8100/fanboard?sort=" + this.state.sort, {})
+      .then(res => {
+        const board = res.data;
+        this.setState({ board });
+      });
+  }
+  sortChange(e) {
+    this.setState({
+      sort: e.target.value
     });
   }
   render() {
+    console.log(this.state.sort);
     const boards = this.state.board.map((item, i) => (
       <tr>
         <td>{item.fan_no}</td>
@@ -142,18 +159,20 @@ class FanBoard extends Component {
               </FormInline>
               <Breadcrumb>
                 <Button
+                  onClick={this.sortChange.bind(this)}
+                  value="all"
                   color="grey"
                   className="boardbtn_all"
                   type="submit"
-                  href="/board/fan"
                 >
                   전체
                 </Button>
                 <Button
+                  onClick={this.sortChange.bind(this)}
+                  value="best"
                   color="red"
                   className="boardbtn_best"
                   type="submit"
-                  href="#"
                 >
                   베스트
                 </Button>
@@ -179,6 +198,7 @@ class FanBoard extends Component {
                 </TableHead>
                 <TableBody>{boards}</TableBody>
               </Table>
+              {/* <Paging page={paging} handlePageChange={this.handlePageChange} /> */}
             </Card>
           </Col>
         </Row>

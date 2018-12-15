@@ -118,18 +118,6 @@ class Navigation extends Component {
               <NavItem>
                 <Dropdown>
                   <DropdownToggle outline color="white">
-                    경기 중계
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem href="/live/n">네이버 중계</DropdownItem>
-                    <DropdownItem href="/live/a">아프리카 중계</DropdownItem>
-                    <DropdownItem href="/live/k">KBL 중계</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
-              <NavItem>
-                <Dropdown>
-                  <DropdownToggle outline color="white">
                     커뮤니티
                   </DropdownToggle>
                   <DropdownMenu>
