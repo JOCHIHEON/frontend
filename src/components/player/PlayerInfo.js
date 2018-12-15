@@ -24,15 +24,18 @@ class PlayerInfo extends Component {
             </React.Fragment>
           )}
         />
+<<<<<<< HEAD
         <Route
           path="/player/detail/:id"
           exact
           render={props => <PlayerDetail {...props} tCode={16} pNum={290421} />}
         />
+=======
+        <Route path="/player/detail/:playername" exact component={PlayerCard} />
+>>>>>>> init
         <Route path="/player/rank" component={PlayerRank} />
       </Switch>
     );
   }
 }
-
 export default PlayerInfo;
