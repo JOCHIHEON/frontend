@@ -99,7 +99,8 @@ class Join extends React.Component {
   validateField(name, value) {
     const fieldValidationErrors = this.state.formErrors;
     const validity = this.state.formValidity;
-    const emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const emailTest = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    const tellTest = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; //휴대전화만 가능
     const isID = name === "requestID";
     const isPW = name === "requestPW";
     const isName = name === "requestName";
@@ -114,11 +115,29 @@ class Join extends React.Component {
       : `${name} is required and cannot be empty`;
 
     if (validity[name]) {
-      if (isPassword) {
-        validity[name] = value.length >= 5;
+      if (isID || isNick) {
+        validity[name] = 20 >= value.length >= 5;
         fieldValidationErrors[name] = validity[name]
           ? ""
           : `${name} should be 5 characters or more`;
+      }
+      if (isPW) {
+        validity[name] = 20 >= value.length >= 8;
+        fieldValidationErrors[name] = validity[name]
+          ? ""
+          : `${name} should be 8 characters or more`;
+      }
+      if (isName) {
+        validity[name] = 20 >= value.length >= 2;
+        fieldValidationErrors[name] = validity[name]
+          ? ""
+          : `${name} should be 2 characters or more`;
+      }
+      if (isTell) {
+        validity[name] = tellTest.test(value);
+        fieldValidationErrors[name] = validity[name]
+          ? ""
+          : `${name}가 잘못된 휴대폰 번호입니다. 숫자, - 를 포함한 숫자만 입력하세요.`;
       }
       if (isEmail) {
         validity[name] = emailTest.test(value);
