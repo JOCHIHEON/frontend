@@ -66,6 +66,7 @@ class Login extends React.Component {
           this.state.title = "로그아웃";
           if (localStorage != null) {
             window.location.reload();
+            alert("로그인 되셨습니다.")
           }
         } else {
           this.setState({

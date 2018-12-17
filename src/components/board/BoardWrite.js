@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Input } from "mdbreact";
 import { Button, Card, CardHeader, CardBody } from "mdbreact";
-import { FormInline } from "mdbreact";
+import { FormInline, MDBIcon } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 
 class BoardWrite extends Component {
@@ -24,15 +24,17 @@ class BoardWrite extends Component {
         </CardBody>
         <Card className="mb-5">
           <CardHeader>
-            <Input
-              label="제목을 입력해주세요."
-              icon="pencil" //icon css
-              group
-              type="text"
-              validate
-              error="wrong"
-              success="right"
-            />
+            <FormInline className="md-form m-0">
+              <Input
+                label="제목을 입력해주세요."
+                icon="pencil"
+                group
+                type="text"
+                validate
+                error="wrong"
+                success="right"
+              />
+            </FormInline>
           </CardHeader>
           <CardBody>
             <form className="mx-3 grey-text">

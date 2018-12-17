@@ -11,7 +11,7 @@ import {
   Col
 } from "mdbreact";
 import axios from "axios";
-
+// https://dev.to/nathansebhastian/react-form-real-time-validation-using-state-1eeg, 정규표현식
 class Join extends React.Component {
   constructor(props) {
     super(props);
@@ -23,8 +23,28 @@ class Join extends React.Component {
       requestNick: "",
       requestTell: "",
       requestEmail: "",
-      requestSupport: ""
+      requestSupport: "",
+      formErrors: {
+        requestID: "",
+        requestPW: "",
+        requestName: "",
+        requestNick: "",
+        requestTell: "",
+        requestEmail: "",
+        requestSupport: ""
+      },
+      formValidity: {
+        requestID: false,
+        requestPW: false,
+        requestName: false,
+        requestNick: false,
+        requestTell: false,
+        requestEmail: false,
+        requestSupport: false
+      },
+      isSubmitDisabled: true
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   toggle = () => {
@@ -56,14 +76,115 @@ class Join extends React.Component {
         alert("회원가입 되셨습니다.");
       });
   }
-  submitHandler = event => {
+  handleSubmit = event => {
     event.preventDefault();
     event.target.className += " was-validated";
     this.onSubmit();
   };
-  changeHandler = event => {
-    this.setState({ ...this.state, [event.target.name]: event.target.value });
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState(
+      {
+        [name]: value
+      },
+      function() {
+        this.validateField(name, value);
+      },
+      function() {
+        this.canSubmit();
+      }
+    );
   };
+  validateField(name, value) {
+    const fieldValidationErrors = this.state.formErrors;
+    const validity = this.state.formValidity;
+    const emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const isID = name === "requestID";
+    const isPW = name === "requestPW";
+    const isName = name === "requestName";
+    const isNick = name === "requestNick";
+    const isTell = name === "requestTell";
+    const isEmail = name === "requestEmail";
+    const isSupport = name === "requestSupport";
+
+    validity[name] = value.length > 0;
+    fieldValidationErrors[name] = validity[name]
+      ? ""
+      : `${name} is required and cannot be empty`;
+
+    if (validity[name]) {
+      if (isPassword) {
+        validity[name] = value.length >= 5;
+        fieldValidationErrors[name] = validity[name]
+          ? ""
+          : `${name} should be 5 characters or more`;
+      }
+      if (isEmail) {
+        validity[name] = emailTest.test(value);
+        fieldValidationErrors[name] = validity[name]
+          ? ""
+          : `${name} should be a valid email address`;
+      }
+    }
+    this.setState(
+      {
+        formErrors: fieldValidationErrors,
+        formValidity: validity
+      },
+      () => this.canSubmit()
+    );
+  }
+  canSubmit() {
+    if (
+      this.state.formValidity.requestID &&
+      this.state.formValidity.requestPW &&
+      this.state.formValidity.requestName &&
+      this.state.formValidity.requestNick &&
+      this.state.formValidity.requestTell &&
+      this.state.formValidity.requestEmail &&
+      this.state.formValidity.requestSupport
+    ) {
+      this.setState({ isSubmitDisabled: false });
+    } else {
+      this.setState({ isSubmitDisabled: true });
+    }
+  }
+  errorClass(error) {
+    return error.length === 0 ? "" : "is-invalid";
+  }
+
+  // canSubmit() {
+  //   const emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  //   const {
+  //     requestID,
+  //     requestPW,
+  //     requestName,
+  //     requestNick,
+  //     requestTell,
+  //     requestEmail,
+  //     requestSupport
+  //   } = this.state;
+  //   // TODO: add valid email format validation in this condition
+  //   if (
+  //     20 >= requestID.length >= 5 &&
+  //     20 >= requestPW.length >= 8 &&
+  //     20 >= requestName.length >= 2 &&
+  //     20 >= requestNick.length >= 5 &&
+  //     requestSupport.length > 0 &&
+  //     requestTell.length > 0 &&
+  //     requestEmail.length > 0 &&
+  //     emailTest.test(requestEmail.toLowerCase())
+  //   ) {
+  //     this.setState({
+  //       isSubmitDisabled: false
+  //     });
+  //   } else {
+  //     this.setState({
+  //       isSubmitDisabled: true
+  //     });
+  //   }
+  // }
   render() {
     return (
       <div>
@@ -80,30 +201,29 @@ class Join extends React.Component {
           </ModalHeader>
           <form
             className="mx-3 grey-text needs-validation"
-            onSubmit={this.submitHandler}
+            onSubmit={this.handleSubmit}
             noValidate
           >
             <ModalBody>
               <Row>
                 <div className="col-md-8">
                   <MDBIcon icon="user" />
-                  <label
-                    htmlFor="defaultFormRegisterConfirmEx3"
-                    className="grey-text"
-                  >
+                  <label htmlFor="requestID" className="grey-text">
                     아이디
                   </label>
                   <input
                     value={this.state.requestID}
                     name="requestID"
-                    onChange={this.changeHandler}
+                    onChange={this.handleChange}
                     type="text"
-                    id="defaultFormRegisterConfirmEx3"
-                    className="form-control"
+                    id="requestID"
+                    className="form-control ${this.errorClass(this.state.formErrors.requestID)}"
                     placeholder="ID"
                     required
                   />
-                  <div className="invalid-feedback">아이디를 입력해주세요.</div>
+                  <div className="invalid-feedback">
+                    {this.state.formErrors.requestID}
+                  </div>
                 </div>
                 <Col>
                   <Button size="sm" className="mt-4">
@@ -115,118 +235,109 @@ class Join extends React.Component {
               </Row>
               <div className="col-md-12">
                 <MDBIcon icon="lock" />
-                <label
-                  htmlFor="defaultFormRegisterPasswordEx4"
-                  className="grey-text"
-                >
+                <label htmlFor="requestPW" className="grey-text">
                   비밀번호
                 </label>
                 <input
                   value={this.state.requestPW}
                   name="requestPW"
-                  onChange={this.changeHandler}
+                  onChange={this.handleChange}
                   type="password"
-                  id="defaultFormRegisterPasswordEx4"
-                  className="form-control"
+                  id="requestPW"
+                  className="form-control ${this.errorClass(this.state.formErrors.requestPW)}"
                   placeholder="PassWord"
                   required
                 />
-                <div className="invalid-feedback">비밀번호를 입력해주세요.</div>
+                <div className="invalid-feedback">
+                  {this.state.formErrors.requestPW}
+                </div>
               </div>
               <div className="col-md-12">
                 <MDBIcon icon="user-circle" />
-                <label
-                  htmlFor="defaultFormRegisterNameEx"
-                  className="grey-text"
-                >
+                <label htmlFor="requestName" className="grey-text">
                   이름
                 </label>
                 <input
                   value={this.state.requestName}
                   name="requestName"
-                  onChange={this.changeHandler}
+                  onChange={this.handleChange}
                   type="text"
-                  id="defaultFormRegisterNameEx"
-                  className="form-control"
+                  id="requestName"
+                  className="form-control ${this.errorClass(this.state.formErrors.requestName)}"
                   placeholder="이름"
                   required
                 />
-                <div className="invalid-feedback">이름을 입력해주세요.</div>
+                <div className="invalid-feedback">
+                  {this.state.formErrors.requestName}
+                </div>
               </div>
               <div className="col-md-12">
                 <MDBIcon icon="user-circle-o" />
-                <label
-                  htmlFor="defaultFormRegisterNameEx1"
-                  className="grey-text"
-                >
+                <label htmlFor="requestNick" className="grey-text">
                   닉네임
                 </label>
                 <input
                   value={this.state.requestNick}
                   name="requestNick"
-                  onChange={this.changeHandler}
+                  onChange={this.handleChange}
                   type="text"
-                  id="defaultFormRegisterNameEx1"
-                  className="form-control"
+                  id="requestNick"
+                  className="form-control ${this.errorClass(this.state.formErrors.requestNick)}"
                   placeholder="닉네임"
                   required
                 />
-                <div className="invalid-feedback">닉네임을 입력해주세요.</div>
+                <div className="invalid-feedback">
+                  {this.state.formErrors.requestNick}
+                </div>
               </div>
               <div className="col-md-12">
                 <MDBIcon icon="phone" />
-                <label
-                  htmlFor="defaultFormRegisterTellEx"
-                  className="grey-text"
-                >
+                <label htmlFor="requestTell" className="grey-text">
                   전화번호
                 </label>
                 <input
                   value={this.state.requestTell}
                   name="requestTell"
-                  onChange={this.changeHandler}
+                  onChange={this.handleChange}
                   type="tel"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                  id="defaultFormRegisterTellEx"
-                  className="form-control"
+                  pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+                  id="requestTell"
+                  className="form-control ${this.errorClass(this.state.formErrors.requestTell)}"
                   placeholder="010-1234-0000"
                   required
                 />
-                <div className="invalid-feedback">전화번호를 입력해주세요.</div>
+                <div className="invalid-feedback">
+                  {this.state.formErrors.requestTell}
+                </div>
               </div>
               <div className="col-md-12">
                 <MDBIcon icon="envelope" />
-                <label
-                  htmlFor="defaultFormRegisterEmailEx2"
-                  className="grey-text"
-                >
+                <label htmlFor="requestEmail" className="grey-text">
                   이메일
                 </label>
                 <input
                   value={this.state.requestEmail}
                   name="requestEmail"
-                  onChange={this.changeHandler}
+                  onChange={this.handleChange}
                   type="email"
-                  id="defaultFormRegisterEmailEx2"
-                  className="form-control"
+                  id="requestEmail"
+                  className="form-control ${this.errorClass(this.state.formErrors.requestEmail)}"
                   placeholder="example@gmail.com"
                   required
                 />
                 <div className="invalid-feedback">
-                  이메일이 올바르지 않습니다.
+                  {this.state.formErrors.requestEmail}
                 </div>
               </div>
               <div className="col-md-12">
                 <MDBIcon icon="tag" />
-                <label
-                  htmlFor="defaultFormRegisterSupportTeam"
-                  className="grey-text"
-                >
+                <label htmlFor="requestSupport" className="grey-text">
                   서포트팀
                 </label>
                 <select
-                  className="custom-select browser-default"
-                  id="defaultFormRegisterSupportTeam"
+                  className="custom-select browser-default form-control ${this.errorClass(this.state.formErrors.requestSupport)}"
+                  id="requestSupport"
+                  onChange={this.handleChange}
                   required
                 >
                   <option value="">팀 선택</option>
@@ -241,11 +352,17 @@ class Join extends React.Component {
                   <option value="06">부산 KT 소닉붐</option>
                   <option value="10">울산 현대모비스 피버스</option>
                 </select>
-                <div className="invalid-feedback">팀을 선택해주세요.</div>
+                <div className="invalid-feedback">
+                  {this.state.formErrors.requestSupport}
+                </div>
               </div>
             </ModalBody>
             <ModalFooter className="justify-content-center">
-              <Button color="primary" type="submit">
+              <Button
+                color="primary"
+                type="submit"
+                disabled={this.state.isSubmitDisabled}
+              >
                 회원가입
               </Button>
               <Button color="secondary" onClick={this.toggle}>
