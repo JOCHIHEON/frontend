@@ -12,7 +12,7 @@ function setHtml(req,res,next) {
 }
 
 app.get('/*', (req, res) => {                       
-    res.sendFile(path.resolve(__dirname, 'index.html'));                               
+    res.sendFile(path.resolve(__dirname,'/git/frontend/build', 'index.html'));                               
 });
 
 app.listen(80,function(){
