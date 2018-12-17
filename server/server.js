@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/../build'));
 
 function setHtml(req,res,next) {
     console.log(req.method);
-    res.sendFile(path.join(__dirname+'/index.html'));
+    res.sendFile(path.resolve(__dirname,'public','index.html'));
     next();
 }
 
