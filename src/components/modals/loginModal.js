@@ -54,7 +54,7 @@ class Login extends React.Component {
     localStorage.clear();
     */
     return axios
-      .post("http://rbd.javajs.net:8100/login", {
+      .post("https://rbd.javajs.net:8100/login", {
         ui_id: ui_id,
         ui_pwd: ui_pwd
       })

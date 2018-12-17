@@ -12,7 +12,7 @@ class TeamScheReco extends Component {
   }
   TeamScheReco() {
     const tCode = this.props.tCode;
-    return axios.get("http://rbd.javajs.net:8100/", {}).then(res => {
+    return axios.get("https://rbd.javajs.net:8100/", {}).then(res => {
       const text = res.data;
       this.setState({ text });
     });

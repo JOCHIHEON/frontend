@@ -14,7 +14,7 @@ class TeamIntro extends React.Component {
   TeamIntro() {
     const tCode = this.props.tCode;
     return axios
-      .get("http://rbd.javajs.net:8100/team/" + tCode, {})
+      .get("https://rbd.javajs.net:8100/team/" + tCode, {})
       .then(res => {
         const text = res.data;
         this.setState({ text });

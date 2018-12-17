@@ -17,7 +17,7 @@ class PlayerDetail extends Component {
     const tCode = this.props.tCode;
     const pNum = this.props.pNum;
     return axios
-      .get("http://rbd.javajs.net:8100/player/" + tCode + "/" + pNum, {})
+      .get("https://rbd.javajs.net:8100/player/" + tCode + "/" + pNum, {})
       .then(res => {
         const players = res.data;
         this.setState({ players });

@@ -14,7 +14,7 @@ class TeamRank extends Component {
     this.FreeBoard();
   }
   FreeBoard() {
-    return axios.get("http://rbd.javajs.net:8100/freeboard", {}).then(res => {
+    return axios.get("https://rbd.javajs.net:8100/freeboard", {}).then(res => {
       const board = res.data;
       this.setState({ board });
     });

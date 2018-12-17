@@ -37,7 +37,7 @@ class PlayerList extends Component {
   }
 
   PlayerList() {
-    return axios.get("http://rbd.javajs.net:8100/player", {}).then(res => {
+    return axios.get("https://rbd.javajs.net:8100/player", {}).then(res => {
       const players = res.data;
       this.setState({ players });
     });

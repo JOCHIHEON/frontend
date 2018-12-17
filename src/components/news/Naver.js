@@ -31,7 +31,7 @@ class Naver extends Component {
       clickBlock = 1;
     }
     return axios
-      .get("http://rbd.javajs.net:8100/news/" + clickBlock, {})
+      .get("https://rbd.javajs.net:8100/news/" + clickBlock, {})
       .then(res => {
         const newslist = res.data.newsList;
         paging = res.data.paging;

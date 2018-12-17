@@ -26,7 +26,7 @@ class FanBoard extends Component {
       });
     }
     return axios
-      .get("http://rbd.javajs.net:8100/fanboard?sort=" + this.state.sort, {})
+      .get("https://rbd.javajs.net:8100/fanboard?sort=" + this.state.sort, {})
       .then(res => {
         const board = res.data;
         this.setState({ board });

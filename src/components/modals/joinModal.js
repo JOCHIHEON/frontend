@@ -41,7 +41,7 @@ class Join extends React.Component {
     let ui_tell = this.state.requestTell;
     let ui_email = this.state.requestEmail;
     return axios
-      .post("http://rbd.javajs.net:8100/sign", {
+      .post("https://rbd.javajs.net:8100/sign", {
         ui_id: ui_id,
         ui_pwd: ui_pwd,
         ui_name: ui_name,

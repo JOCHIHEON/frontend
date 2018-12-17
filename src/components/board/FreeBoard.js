@@ -22,7 +22,7 @@ class FreeBoard extends Component {
     if (clickBlock == undefined) {
       clickBlock = 1;
     }
-    return axios.get("http://rbd.javajs.net:8100/freeboard", {}).then(res => {
+    return axios.get("https://rbd.javajs.net:8100/freeboard", {}).then(res => {
       const board = res.data;
       paging = res.data.paging;
       this.setState({ board });
@@ -33,7 +33,7 @@ class FreeBoard extends Component {
       clickBlock = 1;
     }
     return axios
-      .get("http://rbd.javajs.net:8100/freeboard/best", {})
+      .get("https://rbd.javajs.net:8100/freeboard/best", {})
       .then(res => {
         const bestBoard = res.data;
         paging = res.data.paging;

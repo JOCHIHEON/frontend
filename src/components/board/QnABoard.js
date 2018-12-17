@@ -14,7 +14,7 @@ class QnABoard extends Component {
     this.QnABoard();
   }
   QnABoard() {
-    return axios.get("http://rbd.javajs.net:8100/qna", {}).then(res => {
+    return axios.get("https://rbd.javajs.net:8100/qna", {}).then(res => {
       const board = res.data;
       this.setState({ board });
     });

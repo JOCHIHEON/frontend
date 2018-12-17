@@ -13,7 +13,7 @@ class TeamMember extends Component {
   TeamMember() {
     const tCode = this.props.tCode;
     return axios
-      .get("http://rbd.javajs.net:8100/player/" + tCode, {})
+      .get("https://rbd.javajs.net:8100/player/" + tCode, {})
       .then(res => {
         const members = res.data;
         this.setState({ members });
