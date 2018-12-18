@@ -1,37 +1,43 @@
 import React, { Component } from "react";
-
+import "../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
 import { ListGroup, ListGroupItem, Col, Row, Card, CardBody } from "mdbreact";
-import { Table, TableBody, TableHead } from "mdbreact";
-import { Breadcrumb, BreadcrumbItem, Button } from "mdbreact";
+import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 import axios from "axios";
+import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+
+function getCaret(direction) {
+  if (direction === "asc") {
+    return <span>▲</span>;
+  }
+  if (direction === "desc") {
+    return <span>▼</span>;
+  }
+  return <span>▲/▼</span>;
+}
 
 class TeamRank extends Component {
   constructor(props) {
     super(props);
-    this.state = { board: [] };
+    this.state = {
+      teams: []
+    };
+    this.options = {
+      defaultSortName: "rank", // default sort column name
+      defaultSortOrder: "asc" // default sort order
+    };
   }
+
   componentDidMount() {
-    this.FreeBoard();
+    this.PlayerList();
   }
-  FreeBoard() {
-    return axios.get("https://rbd.javajs.net:8100/freeboard", {}).then(res => {
-      const board = res.data;
-      this.setState({ board });
+
+  PlayerList() {
+    return axios.get("https://rbd.javajs.net:8100/wlrs", {}).then(res => {
+      const teams = res.data;
+      this.setState({ teams });
     });
   }
   render() {
-    const rank = this.state.board.map((item, i) => (
-      <tr>
-        <td>{item.fre_no}</td>
-        <td>
-          <a>{item.fre_title}</a>
-        </td>
-        <td>{item.ui_no}</td>
-        <td>{item.fre_moddat}</td>
-        <td>{item.fre_lookupcnt}</td>
-        <td>{item.fre_like}</td>
-      </tr>
-    ));
     return (
       <React.Fragment>
         <h3>
@@ -60,19 +66,52 @@ class TeamRank extends Component {
           </Col>
           <Col md="9">
             <Card className="mb-5 mt-3">
-              <Table className="table table-hover">
-                <TableHead>
-                  <tr>
-                    <th>순위</th>
-                    <th>팀</th>
-                    <th>경기수</th>
-                    <th>승</th>
-                    <th>패</th>
-                    <th>승률</th>
-                  </tr>
-                </TableHead>
-                <TableBody>{rank}</TableBody>
-              </Table>
+              <BootstrapTable
+                ref="table"
+                data={this.state.teams}
+                options={this.options}
+                hover
+              >
+                <TableHeaderColumn
+                  dataField="rank"
+                  thStyle
+                  isKey={true}
+                  caretRender={getCaret}
+                  dataSort
+                  thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                  width="7%"
+                >
+                  순위
+                </TableHeaderColumn>
+                <TableHeaderColumn
+                  dataField="teamName"
+                  thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                  width="30%"
+                >
+                  팀
+                </TableHeaderColumn>
+                <TableHeaderColumn
+                  dataField="win"
+                  thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                  width="7%"
+                >
+                  승
+                </TableHeaderColumn>
+                <TableHeaderColumn
+                  dataField="lose"
+                  thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                  width="7%"
+                >
+                  패
+                </TableHeaderColumn>
+                <TableHeaderColumn
+                  dataField="shift"
+                  thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
+                  width="7%"
+                >
+                  승률
+                </TableHeaderColumn>
+              </BootstrapTable>
             </Card>
           </Col>
         </Row>

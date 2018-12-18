@@ -45,10 +45,7 @@ const MainVideo = () => {
               <MDBRow>
                 <MDBCol md="3">
                   <div className="z-depth-1-half mb-4">
-                    <Iframe
-                      className="img-fluid"
-                      src="https://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn?vid=95D34E133DE47E7FFF5AA1F9C4B3F1CB3996&outKey=V122a288ee90aa2656a5189ad8acc5dcb98b16984ee9af152123889ad8acc5dcb98b1&controlBarMovable=true&jsCallable=true&isAutoPlay=true&skinName=tvcast_white"
-                    />
+                    <Iframe className="img-fluid" src="" />
                     <a href="#!">
                       <MDBMask overlay="white-slight" className="waves-light" />
                     </a>
@@ -80,10 +77,7 @@ const MainVideo = () => {
               <MDBRow>
                 <MDBCol md="3">
                   <div className="z-depth-1-half mb-4">
-                    <Iframe
-                      className="img-fluid"
-                      src="https://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn?vid=95D34E133DE47E7FFF5AA1F9C4B3F1CB3996&outKey=V122a288ee90aa2656a5189ad8acc5dcb98b16984ee9af152123889ad8acc5dcb98b1&controlBarMovable=true&jsCallable=true&isAutoPlay=true&skinName=tvcast_white"
-                    />
+                    <Iframe className="img-fluid" src="" />
                     <a href="#!">
                       <MDBMask overlay="white-slight" className="waves-light" />
                     </a>
@@ -114,10 +108,7 @@ const MainVideo = () => {
               <MDBRow>
                 <MDBCol md="3">
                   <div className="z-depth-1-half mb-4">
-                    <Iframe
-                      className="img-fluid"
-                      src="https://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn?vid=95D34E133DE47E7FFF5AA1F9C4B3F1CB3996&outKey=V122a288ee90aa2656a5189ad8acc5dcb98b16984ee9af152123889ad8acc5dcb98b1&controlBarMovable=true&jsCallable=true&isAutoPlay=true&skinName=tvcast_white"
-                    />
+                    <Iframe className="img-fluid" src="" />
                     <a href="#!">
                       <MDBMask overlay="white-slight" className="waves-light" />
                     </a>
@@ -144,10 +135,7 @@ const MainVideo = () => {
               <MDBRow>
                 <MDBCol md="3">
                   <div className="z-depth-1-half mb-4">
-                    <Iframe
-                      className="img-fluid"
-                      src="https://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn?vid=95D34E133DE47E7FFF5AA1F9C4B3F1CB3996&outKey=V122a288ee90aa2656a5189ad8acc5dcb98b16984ee9af152123889ad8acc5dcb98b1&controlBarMovable=true&jsCallable=true&isAutoPlay=true&skinName=tvcast_white"
-                    />
+                    <Iframe className="img-fluid" src="" />
                     <a href="#!">
                       <MDBMask overlay="white-slight" className="waves-light" />
                     </a>

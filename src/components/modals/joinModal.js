@@ -17,6 +17,7 @@ class Join extends React.Component {
     super(props);
     this.state = {
       modal: false,
+      DuplChk: false,
       requestID: "",
       requestPW: "",
       requestName: "",
@@ -159,6 +160,17 @@ class Join extends React.Component {
   errorClass(error) {
     return error.length === 0 ? "" : "is-invalid";
   }
+  idDuplChk() {
+    let ui_id = this.state.requestID;
+    return axios
+      .post("https://rbd.javajs.net:8100/sign/" + ui_id, {})
+      .then(res => {
+        console.log(res.data);
+        // const { requestID } = this.state;
+        // window.location.reload();
+        // alert(`${requestID}는 사용가능한 아이디입니다.`);
+      });
+  }
   onSubmit() {
     let ui_id = this.state.requestID;
     let ui_pwd = this.state.requestPW;
@@ -186,7 +198,11 @@ class Join extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault();
-    this.onSubmit();
+    this.idDuplChk();
+    if (this.state.DuplChk == true) {
+      this.onSubmit();
+    }
+    // alert("중복된 아이디 입니다.");
   };
   render() {
     return (
@@ -233,7 +249,12 @@ class Join extends React.Component {
                     </div>
                   </div>
                   <Col md="4">
-                    <Button size="sm" className="mt-4">
+                    <Button
+                      size="sm"
+                      className="mt-4"
+                      color="primary"
+                      type="submit"
+                    >
                       아이디
                       <br />
                       중복확인

@@ -3,6 +3,7 @@ import { FormInline, Button, Fa, CardHeader, CardBody } from "mdbreact";
 import { Card, Breadcrumb, BreadcrumbItem, CardText } from "mdbreact";
 import axios from "axios";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+import "../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
 
 function getCaret(direction) {
   if (direction === "asc") {

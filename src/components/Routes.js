@@ -8,7 +8,6 @@ import TeamPage from "../pages/TeamPage.js";
 import PlayerPage from "../pages/PlayerPage.js";
 import MainSchedule from "./main/MainSchedule.js";
 import MainTeamRank from "./main/MainTeamRank.js";
-import BoardWrite from "./board/BoardWrite.js";
 import BoardPage from "../pages/BoardPage.js";
 import RecordPage from "../pages/RecordPage.js";
 import Naver from "./news/Naver.js";
@@ -27,8 +26,6 @@ class Routes extends React.Component {
         <Route path="/404" component={NotFoundPage} />
 
         <Route path="/news/naver" component={Naver} />
-
-        <Route path="/1" component={BoardWrite} />
         <Route path="/mainteamrank" component={MainTeamRank} />
         <Route path="/mainschedule" component={MainSchedule} />
       </Switch>
