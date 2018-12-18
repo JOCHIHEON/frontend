@@ -55,7 +55,7 @@ class TeamVersus extends Component {
           </Col>
           <Col md="9">
             <Card className="mb-5">
-              <div style={{ marginTop: "1rem" }}>
+              <div classNmae="mt-1">
                 <h4>시즌 상대전적</h4>
               </div>
               <Row>

@@ -66,7 +66,7 @@ class Login extends React.Component {
           this.state.title = "로그아웃";
           if (localStorage != null) {
             window.location.reload();
-            alert("로그인 되셨습니다.")
+            alert("로그인 되셨습니다.");
           }
         } else {
           this.setState({
@@ -74,15 +74,15 @@ class Login extends React.Component {
             requestPW: ""
           });
         }
+      })
+      .catch(error => {
+        alert("아이디, 비밀번호를 확인하세요.");
       });
   }
 
   submitHandler = event => {
     event.preventDefault();
     event.target.className += " was-validated";
-    console.log(this.state.requestID);
-    console.log(this.state.requestPW);
-
     this.onSubmit();
   };
 
