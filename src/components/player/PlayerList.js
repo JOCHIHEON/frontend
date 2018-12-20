@@ -18,9 +18,6 @@ function getCaret(direction) {
 function player_nameFormatter(cell, row) {
   return `<a href="/player/detail/${cell}">${cell}</a>`;
 }
-function team_codeFormatter(cell, row) {
-  return `${cell}`;
-}
 class PlayerList extends Component {
   constructor(props) {
     super(props);
@@ -49,18 +46,6 @@ class PlayerList extends Component {
   };
 
   render() {
-    const players = this.state.players.map((player, i) => (
-      <tr>
-        <td>
-          <a>
-            <h6>{player.player_name}</h6>
-          </a>
-        </td>
-        <td>
-          <p>{player.team_code}</p>
-        </td>
-      </tr>
-    ));
     const options = {
       paginationPanel: this.renderPaginationPanel
     };
@@ -87,12 +72,6 @@ class PlayerList extends Component {
               dataSort
             >
               선수명
-            </TableHeaderColumn>
-            <TableHeaderColumn
-              dataField="player_no"
-              thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
-            >
-              번호
             </TableHeaderColumn>
           </BootstrapTable>
         </CardBody>

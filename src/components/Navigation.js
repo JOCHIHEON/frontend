@@ -57,16 +57,6 @@ class Navigation extends Component {
               <NavItem>
                 <Dropdown>
                   <DropdownToggle outline color="white">
-                    일정/결과
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem href="/schedule">경기일정</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
-              <NavItem>
-                <Dropdown>
-                  <DropdownToggle outline color="white">
                     경기기록
                   </DropdownToggle>
                   <DropdownMenu>
