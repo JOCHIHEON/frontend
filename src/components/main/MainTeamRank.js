@@ -11,7 +11,7 @@ import {
 
 const MainTeamRank = () => {
   return (
-    <Card className="mb-4">
+    <Card>
       <CardHeader>
         TEAM RANGKING
         <Button href="/record/rank" size="sm" outline color="blue-grey">

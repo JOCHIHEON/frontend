@@ -6,12 +6,14 @@ import {
   MDBCardBody,
   MDBMask,
   MDBIcon,
+  MDBCardHeader,
   Iframe
 } from "mdbreact";
 
 const MainVideo = () => {
   return (
     <MDBCard>
+      <MDBCardHeader>MOVIE CLIP</MDBCardHeader>
       <MDBCardBody>
         <MDBRow>
           <MDBCol md="12" lg="6">

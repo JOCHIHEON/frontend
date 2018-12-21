@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { FormInline, Button, Fa, CardHeader, CardBody } from "mdbreact";
-import { Card, Breadcrumb, BreadcrumbItem, CardText } from "mdbreact";
+import { Card, CardHeader, CardBody } from "mdbreact";
 import axios from "axios";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import "../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
@@ -17,9 +16,6 @@ function getCaret(direction) {
 
 function player_nameFormatter(cell, row) {
   return `<a href="/player/detail/${cell}">${cell}</a>`;
-}
-function team_codeFormatter(cell, row) {
-  return `${cell}`;
 }
 class PlayerList extends Component {
   constructor(props) {
@@ -87,12 +83,6 @@ class PlayerList extends Component {
               dataSort
             >
               선수명
-            </TableHeaderColumn>
-            <TableHeaderColumn
-              dataField="player_no"
-              thStyle={{ backgroundColor: "#42a5f5", color: "white" }}
-            >
-              번호
             </TableHeaderColumn>
           </BootstrapTable>
         </CardBody>
