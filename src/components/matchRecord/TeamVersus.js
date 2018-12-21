@@ -13,7 +13,7 @@ import {
 import { Breadcrumb, BreadcrumbItem } from "mdbreact";
 import Footerlogo from "../../img/footerlogo.jpg";
 import VSlogo from "../../img/VS.png";
-import "./TeamVersus.css";
+
 class TeamVersus extends Component {
   constructor(props) {
     super();

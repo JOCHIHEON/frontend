@@ -3,8 +3,24 @@ import { Input } from "mdbreact";
 import { Button, Card, CardHeader, CardBody } from "mdbreact";
 import { FormInline, MDBIcon } from "mdbreact";
 import { Breadcrumb, BreadcrumbItem } from "mdbreact";
+import Axios from "axios";
 
 class BoardWrite extends Component {
+  constructor(props) {
+    this.state = {
+      title: "",
+      content: "",
+      user: localStorage.getItem("user")
+    };
+  }
+  onSubmit() {
+    return Axios.post("https://rbd.javajs.net:8100/freeboard", {
+      fre_title: this.state.title,
+      fre_content: this.state.content
+    }).then(res => {
+      console.log(res.data);
+    });
+  }
   render() {
     return (
       <React.Fragment>
@@ -33,6 +49,7 @@ class BoardWrite extends Component {
                 validate
                 error="wrong"
                 success="right"
+                value={this.state.title}
               />
             </FormInline>
           </CardHeader>
@@ -43,11 +60,14 @@ class BoardWrite extends Component {
                 className="form-control form-control-sm"
                 style={{ minHeight: "500px" }}
                 placeholder="글작성은 최대 3000자 까지 가능합니다."
+                value={this.state.content}
               />
             </form>
           </CardBody>
           <div>
-            <Button color="dark">글 작성</Button>
+            <Button color="dark" type="submit">
+              글 작성
+            </Button>
             <Button color="dark" href="/board/free">
               취소
             </Button>

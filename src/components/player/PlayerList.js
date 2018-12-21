@@ -45,18 +45,6 @@ class PlayerList extends Component {
   };
 
   render() {
-    const players = this.state.players.map((player, i) => (
-      <tr>
-        <td>
-          <a>
-            <h6>{player.player_name}</h6>
-          </a>
-        </td>
-        <td>
-          <p>{player.team_code}</p>
-        </td>
-      </tr>
-    ));
     const options = {
       paginationPanel: this.renderPaginationPanel
     };
