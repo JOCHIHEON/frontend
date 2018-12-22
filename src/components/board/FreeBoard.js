@@ -24,6 +24,7 @@ class FreeBoard extends Component {
     }
     return axios.get("https://rbd.javajs.net:8100/freeboard", {}).then(res => {
       const board = res.data;
+      console.log(res.data);
       paging = res.data.paging;
       this.setState({ board });
     });

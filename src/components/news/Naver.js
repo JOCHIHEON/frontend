@@ -34,6 +34,7 @@ class Naver extends Component {
       .get("https://rbd.javajs.net:8100/news/" + clickBlock, {})
       .then(res => {
         const newslist = res.data.newsList;
+        console.log(res.data);
         paging = res.data.paging;
         this.setState({ newslist });
       });

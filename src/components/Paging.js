@@ -11,7 +11,6 @@ class Paging extends React.Component {
   }
   render() {
     let items = [];
-
     for (
       let i = this.props.page.startBlock, end = this.props.page.endBlock + 1;
       i <= end;
@@ -33,11 +32,17 @@ class Paging extends React.Component {
       <CardBody>
         <Pagination className="pagination-circle">
           <PageItem>
-            <PageLink className="page-link" value={this.props.page.startBlock}>
+            <PageLink
+              className="page-link"
+              onClick={() =>
+                this.handlePageChange(this.props.page.startViewNum + 1)
+              }
+              value={this.props.page.startViewNum}
+            >
               <span>First</span>
             </PageLink>
           </PageItem>
-          <PageItem disabled>
+          <PageItem>
             <PageLink
               className="page-link"
               aria-label="Previous"
@@ -51,13 +56,20 @@ class Paging extends React.Component {
           <PageItem>
             <PageLink
               className="page-link"
+              onClick={() =>
+                this.handlePageChange(this.props.page.clickBlock + 1)
+              }
               value={this.props.page.clickBlock + 1}
             >
               &raquo;
             </PageLink>
           </PageItem>
           <PageItem>
-            <PageLink className="page-link" value={this.props.page.endBlock}>
+            <PageLink
+              className="page-link"
+              onClick={() => this.handlePageChange(this.props.page.totalBlock)}
+              value={this.props.page.totalBlock}
+            >
               Last
             </PageLink>
           </PageItem>
