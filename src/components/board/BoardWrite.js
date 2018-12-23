@@ -7,6 +7,7 @@ import Axios from "axios";
 
 class BoardWrite extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       title: "",
       content: "",
@@ -39,22 +40,22 @@ class BoardWrite extends Component {
           <FormInline className="md-form m-0" />
         </CardBody>
         <Card className="mb-5">
-          <CardHeader>
-            <FormInline className="md-form m-0">
-              <Input
-                label="제목을 입력해주세요."
-                icon="pencil"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-                value={this.state.title}
-              />
-            </FormInline>
-          </CardHeader>
-          <CardBody>
-            <form className="mx-3 grey-text">
+          <form className="mx-3 grey-text">
+            <CardHeader>
+              <FormInline className="md-form m-0">
+                <Input
+                  label="제목을 입력해주세요."
+                  icon="pencil"
+                  group
+                  type="text"
+                  validate
+                  error="wrong"
+                  success="right"
+                  value={this.state.title}
+                />
+              </FormInline>
+            </CardHeader>
+            <CardBody>
               <textarea
                 id="write"
                 className="form-control form-control-sm"
@@ -62,8 +63,8 @@ class BoardWrite extends Component {
                 placeholder="글작성은 최대 3000자 까지 가능합니다."
                 value={this.state.content}
               />
-            </form>
-          </CardBody>
+            </CardBody>
+          </form>
           <div>
             <Button color="dark" type="submit">
               글 작성
