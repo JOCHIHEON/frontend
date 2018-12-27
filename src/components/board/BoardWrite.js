@@ -20,11 +20,10 @@ class BoardWrite extends Component {
         content: false
       },
       canSubmit: false,
-      user: localStorage.getItem("user")
+      user: JSON.parse(localStorage.getItem("user"))
     };
     this.handleChange = this.handleChange.bind(this);
   }
-
   handleChange = event => {
     const { name, value } = event.target;
     this.setState(
@@ -84,8 +83,17 @@ class BoardWrite extends Component {
   }
 
   onSubmit() {
+    var user = localStorage.getItem("user");
+    var token = user.token;
+    var id = user.ui_id;
+    var config = {
+      headers: {
+        "X-Auth-Token": token,
+        "X-Auth-Id": id
+      }
+    };
     return axios
-      .post("https://rbd.javajs.net:8100/freeboard", {
+      .post("https://rbd.javajs.net:8100/freeboard", config)({
         fre_title: this.state.title,
         fre_content: this.state.content
       })
@@ -111,6 +119,7 @@ class BoardWrite extends Component {
               <a href="/board/free">자유게시판</a>
             </BreadcrumbItem>
           </Breadcrumb>
+          <h6>닉네임:{this.state.user.ui_nick}</h6>
         </CardBody>
         <CardBody className="mb-5">
           <form

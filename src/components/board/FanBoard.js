@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { FormInline } from "mdbreact";
 import { Table, TableBody, TableHead, Col, Row } from "mdbreact";
-import { Navbar } from "mdbreact";
+import { NavbarNav, NavItem } from "mdbreact";
 import { Card } from "mdbreact";
 import { Breadcrumb, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
 import Paging from "../Paging";
 import axios from "axios";
-import Paging from "../Paging";
 
 var paging = {};
 class FanBoard extends Component {
@@ -64,98 +63,140 @@ class FanBoard extends Component {
             </ListGroup>
           </Col>
           <Col md="10">
-            <Navbar>
-              <Link to="/board/fan/1" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/215.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                DB
-              </Link>
-              <Link to="/board/fan/2" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/212.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                삼성
-              </Link>
-              <Link to="/board/fan/3" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/211.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                SK
-              </Link>
-              <Link to="/board/fan/4" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/218.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                LG
-              </Link>
-              <Link to="/board/fan/5" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/209.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                오리온스
-              </Link>
-              <Link to="/board/fan/6" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/216.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                전자랜드
-              </Link>
-              <Link to="/board/fan/7" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/217.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                KCC
-              </Link>
-              <Link to="/board/fan/8" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/213.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                KGC
-              </Link>
-              <Link to="/board/fan/9" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/210.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                KT
-              </Link>
-              <Link to="/board/fan/10" className="fbd_tname">
-                <img
-                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/214.png"
-                  width="50px"
-                  height="50px"
-                />
-                <br />
-                모비스
-              </Link>
-            </Navbar>
+            <Card>
+              <FormInline m="5">
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/1" className="fbd_tname">
+                      <img
+                        src="http://kbl.or.kr/images/teams/logo_16.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      DB
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/2" className="fbd_tname">
+                      <img
+                        src="http://kbl.or.kr/images/teams/logo_35.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      삼성
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/3" className="fbd_tname">
+                      <img
+                        src="http://kbl.or.kr/images/teams/logo_55.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      SK
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/4" className="fbd_tname">
+                      <img
+                        src="http://kbl.or.kr/images/teams/logo_50.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      LG
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/5" className="fbd_tname">
+                      <img
+                        src="http://www.kbl.or.kr/images/teams/logo_30.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      오리온스
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/6" className="fbd_tname">
+                      <img
+                        src="http://www.kbl.or.kr/images/teams/logo_65.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      전자랜드
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/7" className="fbd_tname">
+                      <img
+                        src="http://www.kbl.or.kr/images/teams/logo_60.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      KCC
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/8" className="fbd_tname">
+                      <img
+                        src="http://www.kbl.or.kr/images/teams/logo_70.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      KGC
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/9" className="fbd_tname">
+                      <img
+                        src="http://www.kbl.or.kr/images/teams/logo_06.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      KT
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+                <NavbarNav>
+                  <NavItem>
+                    <a href="/board/fan/10" className="fbd_tname">
+                      <img
+                        src="http://www.kbl.or.kr/images/teams/logo_10.gif"
+                        width="70%"
+                        height="70%"
+                      />
+                      <br />
+                      모비스
+                    </a>
+                  </NavItem>
+                </NavbarNav>
+              </FormInline>
+            </Card>
             <Card>
               <Breadcrumb>
                 <Button

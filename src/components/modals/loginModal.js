@@ -11,7 +11,7 @@ class Login extends React.Component {
       modal: false,
       requestID: "",
       requestPW: "",
-      user: localStorage.getItem("user"),
+      user: JSON.parse(localStorage.getItem("user")),
       title: "로그인"
     };
   }
@@ -60,7 +60,8 @@ class Login extends React.Component {
       .then(res => {
         console.log(res.data);
         if (res.data.token) {
-          localStorage.setItem("user", res.data);
+          localStorage.setItem("user", JSON.stringify(res.data));
+          console.log(this.state.user);
           this.toggle();
           this.state.title = "로그아웃";
           if (localStorage != null) {
