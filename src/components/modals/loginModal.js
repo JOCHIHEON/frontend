@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row, Col } from "mdbreact";
 import { Fa, MDBBtn } from "mdbreact";
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "mdbreact";
 

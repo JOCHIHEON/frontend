@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Table, TableBody, TableHead, Col, Row } from "mdbreact";
-import { FormInline, Navbar, CardBody } from "mdbreact";
+import { Navbar } from "mdbreact";
 import { Card } from "mdbreact";
 import { Breadcrumb, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
+import Paging from "../Paging";
 import axios from "axios";
 import Paging from "../Paging";
 
@@ -20,6 +21,7 @@ class FanBoard extends Component {
   handlePageChange(clickBlock) {
     this.FanBoard(clickBlock);
   }
+
   componentDidMount() {
     this.FanBoard();
   }
@@ -28,7 +30,7 @@ class FanBoard extends Component {
       clickBlock = 1;
     }
     return axios
-      .get("https://rbd.javajs.net:8100/fanboard/?clickBlock=" + clickBlock, {})
+      .get("https://rbd.javajs.net:8100/fanboard?clickBlock=" + clickBlock, {})
       .then(res => {
         const board = res.data.fanList;
         paging = res.data.paging;
@@ -63,7 +65,7 @@ class FanBoard extends Component {
           </Col>
           <Col md="10">
             <Navbar>
-              <NavLink to="/board/fan/1" className="fbd_tname">
+              <Link to="/board/fan/1" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/215.png"
                   width="50px"
@@ -71,8 +73,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 DB
-              </NavLink>
-              <NavLink to="/board/fan/2" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/2" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/212.png"
                   width="50px"
@@ -80,8 +82,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 삼성
-              </NavLink>
-              <NavLink to="/board/fan/3" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/3" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/211.png"
                   width="50px"
@@ -89,8 +91,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 SK
-              </NavLink>
-              <NavLink to="/board/fan/4" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/4" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/218.png"
                   width="50px"
@@ -98,8 +100,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 LG
-              </NavLink>
-              <NavLink to="/board/fan/5" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/5" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/209.png"
                   width="50px"
@@ -107,8 +109,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 오리온스
-              </NavLink>
-              <NavLink to="/board/fan/6" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/6" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/216.png"
                   width="50px"
@@ -116,8 +118,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 전자랜드
-              </NavLink>
-              <NavLink to="/board/fan/7" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/7" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/217.png"
                   width="50px"
@@ -125,8 +127,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 KCC
-              </NavLink>
-              <NavLink to="/board/fan/8" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/8" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/213.png"
                   width="50px"
@@ -134,8 +136,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 KGC
-              </NavLink>
-              <NavLink to="/board/fan/9" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/9" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/210.png"
                   width="50px"
@@ -143,8 +145,8 @@ class FanBoard extends Component {
                 />
                 <br />
                 KT
-              </NavLink>
-              <NavLink to="/board/fan/10" className="fbd_tname">
+              </Link>
+              <Link to="/board/fan/10" className="fbd_tname">
                 <img
                   src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/214.png"
                   width="50px"
@@ -152,7 +154,7 @@ class FanBoard extends Component {
                 />
                 <br />
                 모비스
-              </NavLink>
+              </Link>
             </Navbar>
             <Card>
               <Breadcrumb>
@@ -195,7 +197,11 @@ class FanBoard extends Component {
                 <TableBody>{boards}</TableBody>
               </Table>
             </Card>
-            <Paging page={paging} handlePageChange={this.handlePageChange} />
+            <Paging
+              className="ml-3"
+              page={paging}
+              handlePageChange={this.handlePageChange}
+            />
           </Col>
         </Row>
       </Container>

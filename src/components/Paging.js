@@ -12,7 +12,7 @@ class Paging extends React.Component {
   render() {
     let items = [];
     for (
-      let i = this.props.page.startBlock, end = this.props.page.endBlock + 1;
+      let i = this.props.page.startBlock, end = this.props.page.endBlock;
       i <= end;
       i++
     ) {
@@ -34,10 +34,7 @@ class Paging extends React.Component {
           <PageItem>
             <PageLink
               className="page-link"
-              onClick={() =>
-                this.handlePageChange(this.props.page.startViewNum + 1)
-              }
-              value={this.props.page.startViewNum}
+              onClick={() => this.handlePageChange(1)}
             >
               <span>First</span>
             </PageLink>
@@ -46,6 +43,9 @@ class Paging extends React.Component {
             <PageLink
               className="page-link"
               aria-label="Previous"
+              onClick={() =>
+                this.handlePageChange(this.props.page.clickBlock - 1)
+              }
               value={this.props.page.clickBlock - 1}
             >
               <span aria-hidden="true">&laquo;</span>
@@ -67,8 +67,8 @@ class Paging extends React.Component {
           <PageItem>
             <PageLink
               className="page-link"
-              onClick={() => this.handlePageChange(this.props.page.totalBlock)}
-              value={this.props.page.totalBlock}
+              onClick={() => this.handlePageChange(this.props.page.totalView)}
+              value={this.props.page.totalView}
             >
               Last
             </PageLink>
