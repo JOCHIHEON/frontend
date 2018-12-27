@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Table, TableBody, TableHead, Col, Row } from "mdbreact";
-import { FormInline } from "mdbreact";
+import { Navbar } from "mdbreact";
 import { Card } from "mdbreact";
 import { Breadcrumb, Button } from "mdbreact";
 import { ListGroup, ListGroupItem, Container } from "mdbreact";
+import Paging from "../Paging";
 import axios from "axios";
 
 var paging = {};
@@ -12,23 +13,27 @@ class FanBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      board: [],
-      sort: {}
+      board: []
     };
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
+  handlePageChange(clickBlock) {
+    this.FanBoard(clickBlock);
+  }
+
   componentDidMount() {
     this.FanBoard();
   }
-  FanBoard() {
-    if (this.state.sort === null) {
-      this.setState({
-        sort: "all"
-      });
+  FanBoard(clickBlock) {
+    if (clickBlock == undefined) {
+      clickBlock = 1;
     }
     return axios
-      .get("https://rbd.javajs.net:8100/fanboard?sort=" + this.state.sort, {})
+      .get("https://rbd.javajs.net:8100/fanboard?clickBlock=" + clickBlock, {})
       .then(res => {
-        const board = res.data;
+        const board = res.data.fanList;
+        paging = res.data.paging;
+        console.log(paging);
         this.setState({ board });
       });
   }
@@ -64,99 +69,99 @@ class FanBoard extends Component {
             </ListGroup>
           </Col>
           <Col md="10">
-            <Card className="mb-5">
-              <FormInline>
-                <Link to="/board/fan/1" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/215.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  DB
-                </Link>
-                <Link to="/board/fan/2" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/212.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  삼성
-                </Link>
-                <Link to="/board/fan/3" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/211.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  SK
-                </Link>
-                <Link to="/board/fan/4" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/218.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  LG
-                </Link>
-                <Link to="/board/fan/5" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/209.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  오리온스
-                </Link>
-                <Link to="/board/fan/6" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/216.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  전자랜드
-                </Link>
-                <Link to="/board/fan/7" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/217.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  KCC
-                </Link>
-                <Link to="/board/fan/8" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/213.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  KGC
-                </Link>
-                <Link to="/board/fan/9" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/210.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  KT
-                </Link>
-                <Link to="/board/fan/10" className="fbd_tname">
-                  <img
-                    src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/214.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <br />
-                  모비스
-                </Link>
-              </FormInline>
+            <Navbar>
+              <Link to="/board/fan/1" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/215.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                DB
+              </Link>
+              <Link to="/board/fan/2" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/212.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                삼성
+              </Link>
+              <Link to="/board/fan/3" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/211.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                SK
+              </Link>
+              <Link to="/board/fan/4" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/218.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                LG
+              </Link>
+              <Link to="/board/fan/5" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/209.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                오리온스
+              </Link>
+              <Link to="/board/fan/6" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/216.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                전자랜드
+              </Link>
+              <Link to="/board/fan/7" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/217.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                KCC
+              </Link>
+              <Link to="/board/fan/8" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/213.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                KGC
+              </Link>
+              <Link to="/board/fan/9" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/210.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                KT
+              </Link>
+              <Link to="/board/fan/10" className="fbd_tname">
+                <img
+                  src="https://thumb.named.com/normal/resize/72x45/sports/basketball/team/214.png"
+                  width="50px"
+                  height="50px"
+                />
+                <br />
+                모비스
+              </Link>
+            </Navbar>
+            <Card>
               <Breadcrumb>
                 <Button
                   onClick={this.sortChange.bind(this)}
@@ -198,8 +203,12 @@ class FanBoard extends Component {
                 </TableHead>
                 <TableBody>{boards}</TableBody>
               </Table>
-              {/* <Paging page={paging} handlePageChange={this.handlePageChange} /> */}
             </Card>
+            <Paging
+              className="ml-3"
+              page={paging}
+              handlePageChange={this.handlePageChange}
+            />
           </Col>
         </Row>
       </Container>

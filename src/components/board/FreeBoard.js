@@ -9,11 +9,14 @@ var paging = {};
 class FreeBoard extends Component {
   constructor(props) {
     super(props);
-    this.state = { board: [] };
+    this.state = {
+      board: [],
+      user: localStorage.getItem("user")
+    };
     this.handlePageChange = this.handlePageChange.bind(this);
   }
   handlePageChange(clickBlock) {
-    this.Naver(clickBlock);
+    this.FreeBoard(clickBlock);
   }
   componentDidMount() {
     this.FreeBoard();
@@ -22,23 +25,21 @@ class FreeBoard extends Component {
     if (clickBlock == undefined) {
       clickBlock = 1;
     }
-    return axios.get("https://rbd.javajs.net:8100/freeboard", {}).then(res => {
-      const board = res.data;
-      paging = res.data.paging;
-      this.setState({ board });
-    });
-  }
-  BoardBest(clickBlock) {
-    if (clickBlock == undefined) {
-      clickBlock = 1;
-    }
     return axios
-      .get("https://rbd.javajs.net:8100/freeboard/best", {})
+      .get("https://rbd.javajs.net:8100/freeboard?clickBlock=" + clickBlock, {})
       .then(res => {
-        const bestBoard = res.data;
+        const board = res.data.freeList;
         paging = res.data.paging;
-        this.setState({ bestBoard });
+        this.setState({ board });
       });
+  }
+  loginChk() {
+    console.log(localStorage.length);
+    if (localStorage.length == 0) {
+      alert("로그인이 필요합니다.");
+    } else {
+      document.location.href = "/board/free/write";
+    }
   }
   render() {
     const boards = this.state.board.map((item, i) => (
@@ -70,18 +71,13 @@ class FreeBoard extends Component {
               <Button color="grey" className="boardbtn_all" href="/board/free">
                 전체
               </Button>
-              <Button
-                onclick={this.BoardBest}
-                color="red"
-                className="boardbtn_best"
-              >
+              <Button color="red" className="boardbtn_best">
                 베스트
               </Button>
               <Button
                 color="primary"
                 className="board-write"
-                type="submit"
-                href="/board/free/write"
+                onClick={this.loginChk}
               >
                 글쓰기
               </Button>
@@ -99,7 +95,7 @@ class FreeBoard extends Component {
               </TableHead>
               <TableBody>{boards}</TableBody>
             </Table>
-            {/* <Paging page={paging} handlePageChange={this.handlePageChange} /> */}
+            <Paging page={paging} handlePageChange={this.handlePageChange} />
           </Col>
         </Row>
       </Container>
