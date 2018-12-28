@@ -7,7 +7,7 @@
   "static/js/1.cdf5ea3d.chunk.js.map": "/static/js/1.cdf5ea3d.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/media/mdb.css": "/static/media/Roboto-Bold.e31fcf18.ttf",
+  "static/media/mdb.css": "/static/media/Roboto-Medium.894a2ede.ttf",
   "static/media/footerlogo.jpg": "/static/media/footerlogo.09cc097a.jpg",
   "static/media/VS.png": "/static/media/VS.a05d64a9.png",
   "static/media/font-awesome.min.css": "/static/media/fontawesome-webfont.912ec66d.svg",
@@ -15,6 +15,6 @@
   "static/css/main.a0534627.chunk.css.map": "/static/css/main.a0534627.chunk.css.map",
   "static/css/1.5d410f46.chunk.css.map": "/static/css/1.5d410f46.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.4139c752a67afaa0aceaa848448f316d.js": "/precache-manifest.4139c752a67afaa0aceaa848448f316d.js",
+  "precache-manifest.67777f18212e5856fce2f7b30d9827b9.js": "/precache-manifest.67777f18212e5856fce2f7b30d9827b9.js",
   "service-worker.js": "/service-worker.js"
 }
