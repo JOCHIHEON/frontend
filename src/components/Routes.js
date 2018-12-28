@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Schedule from "./schedule/Schedule.js";
-import QnABoard from "./board/QnABoard.js";
 import NotFoundPage from "../pages/NotFoundPage.js";
 import MainPage from "../pages/MainPage.js";
 import TeamPage from "../pages/TeamPage.js";
@@ -22,7 +21,6 @@ class Routes extends React.Component {
         <Route path="/schedule" component={Schedule} />
         <Route path="/record" component={RecordPage} />
         <Route path="/board" component={BoardPage} />
-        <Route path="/board/qna" component={QnABoard} />
         <Route path="/404" component={NotFoundPage} />
 
         <Route path="/news/naver" component={Naver} />

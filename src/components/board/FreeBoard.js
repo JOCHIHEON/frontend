@@ -29,6 +29,7 @@ class FreeBoard extends Component {
       .get("https://rbd.javajs.net:8100/freeboard?clickBlock=" + clickBlock, {})
       .then(res => {
         const board = res.data.freeList;
+        console.log(board);
         paging = res.data.paging;
         this.setState({ board });
       });
