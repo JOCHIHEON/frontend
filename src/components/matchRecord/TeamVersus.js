@@ -37,7 +37,7 @@ class TeamVersus extends Component {
         </h3>
         <Row>
           <Col md="3">
-            <Card>
+            <Card className="mb-5 mt-3">
               <h4>
                 <div className="sub_title">
                   <CardBody>경기기록</CardBody>
@@ -54,7 +54,7 @@ class TeamVersus extends Component {
             </Card>
           </Col>
           <Col md="9">
-            <Card className="mb-5">
+            <Card className="mb-5 mt-3">
               <div classNmae="mt-1">
                 <h4>시즌 상대전적</h4>
               </div>
