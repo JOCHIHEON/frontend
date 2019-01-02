@@ -119,7 +119,7 @@ class BoardWrite extends Component {
               <a href="/board/free">자유게시판</a>
             </BreadcrumbItem>
           </Breadcrumb>
-          <h6>닉네임:{this.state.user.ui_nick}</h6>
+          <h6>작성자:{this.state.user.ui_nick}</h6>
         </CardBody>
         <CardBody className="mb-5">
           <form
@@ -129,10 +129,10 @@ class BoardWrite extends Component {
           >
             <CardHeader className="mt-3">
               <Row>
-                <Col className="mt-2" md="1">
-                  <label htmlFor="title">제목</label>
+                <Col className="mt-2" md="2">
+                  <label htmlFor="title">글 제목</label>
                 </Col>
-                <Col md="11">
+                <Col className="mt-1" md="10">
                   <input
                     value={this.state.title}
                     name="title"
@@ -154,7 +154,6 @@ class BoardWrite extends Component {
             <CardBody>
               <label htmlFor="content">내용</label>
               <textArea
-                id="content"
                 name="content"
                 onChange={this.handleChange}
                 className={`form-control form-control-sm ${this.errorClass(
@@ -174,7 +173,7 @@ class BoardWrite extends Component {
                 type="submit"
                 disabled={!this.state.canSubmit}
               >
-                글 작성
+                작성완료 
               </Button>
               <Button color="secondary" href="/board/free">
                 취소
