@@ -48,8 +48,12 @@ class TeamVersus extends Component {
                 <ListGroupItem href="/record/versus" active>
                   상대전적
                 </ListGroupItem>
-                <ListGroupItem href="#">부문별 팀순위</ListGroupItem>
-                <ListGroupItem href="#">공수력 비교</ListGroupItem>
+                <ListGroupItem href="/record/detail">
+                  부문별 팀순위
+                </ListGroupItem>
+                <ListGroupItem href="/record/distance">
+                  공수력 비교
+                </ListGroupItem>
               </ListGroup>
             </Card>
           </Col>

@@ -65,7 +65,9 @@ class Navigation extends Component {
                     <DropdownItem href="/record/detail">
                       부문별 팀순위
                     </DropdownItem>
-                    <DropdownItem href="/record">공수력 비교</DropdownItem>
+                    <DropdownItem href="/record/distance">
+                      공수력 비교
+                    </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </NavItem>

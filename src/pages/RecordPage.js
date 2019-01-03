@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import TeamVersus from "../components/matchRecord/TeamVersus";
 import TeamRank from "../components/matchRecord/TeamRank";
 import { Card } from "mdbreact";
+import detailRank from "../components/matchRecord/detailRank";
 
 class RecordPage extends Component {
   render() {
@@ -11,6 +12,7 @@ class RecordPage extends Component {
         <Switch>
           <Route path="/record/versus" component={TeamVersus} />
           <Route path="/record/rank" component={TeamRank} />
+          <Route path="/record/detail" component={detailRank} />
         </Switch>
       </Card>
     );

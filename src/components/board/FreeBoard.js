@@ -47,9 +47,9 @@ class FreeBoard extends Component {
       <tr>
         <td>{item.fre_no}</td>
         <td>
-          <a href={"/board/free/view/"+item.fre_no}>{item.fre_title}</a>
+          <a href={"/board/free/view/" + item.fre_no}>{item.fre_title}</a>
         </td>
-        <td>{item.ui_no}</td>
+        <td>{item.ui_nick}</td>
         <td>{item.fre_moddat}</td>
         <td>{item.fre_lookupcnt}</td>
         <td>{item.fre_like}</td>
